@@ -3,6 +3,13 @@ import { pageHtml } from './pageHtml';
 
 const slideSelector = '.hero, .page-section, .cta-section';
 
+declare global {
+  interface Window {
+    __hiddenArchitectsGoElemental?: (value: number, absolute?: boolean) => void;
+    __hiddenArchitectsGoPlant?: (value: number, absolute?: boolean) => void;
+  }
+}
+
 function pad(value: number) {
   return String(value).padStart(2, '0');
 }
@@ -27,16 +34,46 @@ export default function App() {
       return;
     }
 
+    const getEventElement = (target: EventTarget | null) => {
+      if (target instanceof Element) return target;
+      if (target instanceof Node) return target.parentElement;
+      return null;
+    };
+
     let current = 0;
     const total = slides.length;
 
-    const updateUI = (index: number) => {
+    const getCurrentIndex = () => {
+      const activeIndex = slides.findIndex((slide) => !slide.classList.contains('slide-hidden'));
+      return activeIndex === -1 ? current : activeIndex;
+    };
+
+    const getHashIndex = () => {
+      const targetId = window.location.hash.replace(/^#\/?/, '');
+      if (!targetId) return 0;
+
+      const targetIndex = slides.findIndex((slide) => slide.id === targetId);
+      return targetIndex === -1 ? 0 : targetIndex;
+    };
+
+    const updateUI = (index: number, resetScroll = false) => {
       current = index;
       counter.textContent = `${pad(index + 1)} / ${pad(total)}`;
       prevBtn.disabled = index === 0;
       nextBtn.disabled = index === total - 1;
 
       const activeId = slides[index]?.id;
+      slides.forEach((slide, slideIndex) => {
+        const isActive = slideIndex === index;
+        slide.classList.toggle('slide-hidden', !isActive);
+
+        if (isActive && resetScroll) {
+          slide.scrollTop = 0;
+          slide.querySelectorAll<HTMLElement>('.section-panel-text').forEach((panel) => {
+            panel.scrollTop = 0;
+          });
+        }
+      });
       navLinks.forEach((link) => {
         link.classList.toggle('active', link.getAttribute('href') === `#${activeId}`);
       });
@@ -45,11 +82,17 @@ export default function App() {
     const goTo = (index: number) => {
       if (index < 0 || index >= total) return;
 
-      mainEl.scrollTo({
-        top: index * mainEl.clientHeight,
-        behavior: 'smooth',
-      });
-      updateUI(index);
+      const targetId = slides[index]?.id;
+      if (targetId) {
+        window.location.hash = targetId;
+      } else {
+        window.history.pushState(null, '', `${window.location.pathname}${window.location.search}`);
+      }
+      updateUI(index, true);
+    };
+
+    const goBy = (offset: 1 | -1) => {
+      goTo(getCurrentIndex() + offset);
     };
 
     const handleToggleClick = () => sidebar.classList.toggle('open');
@@ -73,10 +116,15 @@ export default function App() {
       return { link, handler };
     });
 
-    const handlePrevClick = () => goTo(current - 1);
-    const handleNextClick = () => goTo(current + 1);
-    prevBtn.addEventListener('click', handlePrevClick);
-    nextBtn.addEventListener('click', handleNextClick);
+    const handleRootClick = (event: MouseEvent) => {
+      const target = getEventElement(event.target);
+      const button = target?.closest<HTMLButtonElement>('#prev-btn, #next-btn');
+      if (!button || button.disabled) return;
+
+      event.preventDefault();
+      goBy(button.id === 'next-btn' ? 1 : -1);
+    };
+    root.addEventListener('click', handleRootClick);
 
     const handleKeyDown = (event: KeyboardEvent) => {
       const target = event.target as HTMLElement | null;
@@ -84,12 +132,18 @@ export default function App() {
 
       if (event.key === 'ArrowDown' || event.key === 'PageDown') {
         event.preventDefault();
-        goTo(current + 1);
+        goBy(1);
       } else if (event.key === 'ArrowUp' || event.key === 'PageUp') {
         event.preventDefault();
-        goTo(current - 1);
+        goBy(-1);
+      } else if (event.key === 'ArrowRight') {
+        event.preventDefault();
+        goBy(1);
+      } else if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+        goBy(-1);
       } else if (event.key === 'n' || event.key === 'N') {
-        const currentSlide = slides[current];
+        const currentSlide = slides[getCurrentIndex()];
         if (currentSlide?.classList.contains('page-section')) {
           currentSlide.classList.toggle('notes-open');
         }
@@ -97,85 +151,81 @@ export default function App() {
     };
     document.addEventListener('keydown', handleKeyDown);
 
-    const plateTriggers = Array.from(root.querySelectorAll<HTMLElement>('.plate-trigger'));
-    const handlePlateTriggerClick = (event: Event) => {
-      event.stopPropagation();
-      const trigger = event.currentTarget as HTMLElement;
-      trigger.closest('.page-section')?.classList.toggle('notes-open');
-    };
-    plateTriggers.forEach((trigger) => trigger.addEventListener('click', handlePlateTriggerClick));
-
-    let snapObserver: IntersectionObserver | undefined;
-    if ('IntersectionObserver' in window) {
-      snapObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              const index = slides.indexOf(entry.target as HTMLElement);
-              if (index !== -1) updateUI(index);
-            }
-          });
-        },
-        { root: mainEl, threshold: 0.6 },
-      );
-      slides.forEach((slide) => snapObserver?.observe(slide));
-    }
+    const handleHashChange = () => updateUI(getHashIndex(), true);
+    window.addEventListener('hashchange', handleHashChange);
 
     slides.forEach((slide, index) => {
       const numberEl = slide.querySelector<HTMLElement>('.section-num');
       if (numberEl) numberEl.textContent = `${pad(index + 1)} / ${pad(total)}`;
     });
+    navLinks.forEach((link) => {
+      const numberEl = link.querySelector<HTMLElement>('.nav-num');
+      const targetId = link.getAttribute('href')?.slice(1);
+      const targetIndex = slides.findIndex((slide) => slide.id === targetId);
+
+      if (numberEl && targetIndex !== -1) {
+        numberEl.textContent = pad(targetIndex + 1);
+      }
+    });
 
     const elemTrack = root.querySelector<HTMLElement>('#elemental-track');
     const elemSlides = elemTrack ? Array.from(elemTrack.querySelectorAll<HTMLElement>('.carousel-slide')) : [];
     const elemDots = Array.from(root.querySelectorAll<HTMLElement>('.elem-dot'));
-    const elemPrev = root.querySelector<HTMLButtonElement>('#elem-prev');
-    const elemNext = root.querySelector<HTMLButtonElement>('#elem-next');
     let elemIdx = 0;
 
     const goElem = (index: number) => {
       if (!elemTrack || elemSlides.length === 0) return;
 
       elemIdx = (index + elemSlides.length) % elemSlides.length;
-      elemTrack.style.transform = `translateX(-${elemIdx * 100}%)`;
+      elemTrack.classList.add('is-js-carousel');
+      elemTrack.style.transform = '';
+      elemSlides.forEach((slide, slideIndex) => {
+        slide.classList.toggle('carousel-slide-active', slideIndex === elemIdx);
+      });
       elemDots.forEach((dot, dotIndex) => {
         dot.classList.toggle('active', dotIndex === elemIdx);
       });
     };
 
-    const handleElemPrevClick = (event: MouseEvent) => {
-      event.stopPropagation();
-      goElem(elemIdx - 1);
+    window.__hiddenArchitectsGoElemental = (value: number, absolute = false) => {
+      goElem(absolute ? value : elemIdx + value);
     };
-    const handleElemNextClick = (event: MouseEvent) => {
-      event.stopPropagation();
-      goElem(elemIdx + 1);
+
+    const plantTrack = root.querySelector<HTMLElement>('#plant-track');
+    const plantSlides = plantTrack ? Array.from(plantTrack.querySelectorAll<HTMLElement>('.carousel-slide')) : [];
+    const plantDots = Array.from(root.querySelectorAll<HTMLElement>('.plant-dot'));
+    let plantIdx = 0;
+
+    const goPlant = (index: number) => {
+      if (!plantTrack || plantSlides.length === 0) return;
+
+      plantIdx = (index + plantSlides.length) % plantSlides.length;
+      plantTrack.classList.add('is-js-carousel');
+      plantTrack.style.transform = '';
+      plantSlides.forEach((slide, slideIndex) => {
+        slide.classList.toggle('carousel-slide-active', slideIndex === plantIdx);
+      });
+      plantDots.forEach((dot, dotIndex) => {
+        dot.classList.toggle('active', dotIndex === plantIdx);
+      });
     };
-    const elemDotHandlers = elemDots.map((dot) => {
-      const handler = (event: MouseEvent) => {
-        event.stopPropagation();
-        goElem(Number(dot.dataset.idx ?? 0));
-      };
 
-      dot.addEventListener('click', handler);
-      return { dot, handler };
-    });
+    window.__hiddenArchitectsGoPlant = (value: number, absolute = false) => {
+      goPlant(absolute ? value : plantIdx + value);
+    };
 
-    elemPrev?.addEventListener('click', handleElemPrevClick);
-    elemNext?.addEventListener('click', handleElemNextClick);
-    updateUI(0);
+    goElem(0);
+    goPlant(0);
+    updateUI(getHashIndex());
 
     return () => {
       toggle.removeEventListener('click', handleToggleClick);
       navHandlers.forEach(({ link, handler }) => link.removeEventListener('click', handler));
-      prevBtn.removeEventListener('click', handlePrevClick);
-      nextBtn.removeEventListener('click', handleNextClick);
+      root.removeEventListener('click', handleRootClick);
       document.removeEventListener('keydown', handleKeyDown);
-      plateTriggers.forEach((trigger) => trigger.removeEventListener('click', handlePlateTriggerClick));
-      snapObserver?.disconnect();
-      elemPrev?.removeEventListener('click', handleElemPrevClick);
-      elemNext?.removeEventListener('click', handleElemNextClick);
-      elemDotHandlers.forEach(({ dot, handler }) => dot.removeEventListener('click', handler));
+      window.removeEventListener('hashchange', handleHashChange);
+      delete window.__hiddenArchitectsGoElemental;
+      delete window.__hiddenArchitectsGoPlant;
     };
   }, []);
 
