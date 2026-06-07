@@ -214,6 +214,33 @@ export default function App() {
       goPlant(absolute ? value : plantIdx + value);
     };
 
+    const handleCarouselClick = (event: MouseEvent) => {
+      const target = getEventElement(event.target);
+      const control = target?.closest<HTMLElement>('.carousel-btn, .elem-dot, .plant-dot');
+      if (!control || !root.contains(control)) return;
+
+      event.preventDefault();
+      event.stopPropagation();
+
+      if (control.classList.contains('elem-dot')) {
+        const index = Number(control.dataset.idx);
+        if (!Number.isNaN(index)) goElem(index);
+        return;
+      }
+
+      if (control.classList.contains('plant-dot')) {
+        const index = Number(control.dataset.idx);
+        if (!Number.isNaN(index)) goPlant(index);
+        return;
+      }
+
+      if (control.id === 'elem-prev') goElem(elemIdx - 1);
+      if (control.id === 'elem-next') goElem(elemIdx + 1);
+      if (control.id === 'plant-prev') goPlant(plantIdx - 1);
+      if (control.id === 'plant-next') goPlant(plantIdx + 1);
+    };
+    root.addEventListener('click', handleCarouselClick, true);
+
     goElem(0);
     goPlant(0);
     updateUI(getHashIndex());
@@ -222,6 +249,7 @@ export default function App() {
       toggle.removeEventListener('click', handleToggleClick);
       navHandlers.forEach(({ link, handler }) => link.removeEventListener('click', handler));
       root.removeEventListener('click', handleRootClick);
+      root.removeEventListener('click', handleCarouselClick, true);
       document.removeEventListener('keydown', handleKeyDown);
       window.removeEventListener('hashchange', handleHashChange);
       delete window.__hiddenArchitectsGoElemental;
