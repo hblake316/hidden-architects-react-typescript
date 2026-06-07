@@ -1,1686 +1,3668 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Kingdom of the Gods: Invisible Realms</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <style>
-    /* ============================================================
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>
+      The Kingdom of the Gods: Invisible
+      Realms
+    </title>
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Raleway:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* ============================================================
        CSS VARIABLES — DARK MODE (default)
        ============================================================ */
-    :root {
-      --bg-deep:       #0a0d1a;
-      --bg-mid:        #0e1428;
-      --bg-section:    #111830;
-      --bg-card:       #161e36;
-      --gold:          #c9a84c;
-      --gold-light:    #e2c97e;
-      --gold-pale:     #f0e0aa;
-      --indigo:        #3d4f8c;
-      --indigo-light:  #5a72bf;
-      --violet:        #9c4fa0;
-      --text-primary:  #e8e2d4;
-      --text-secondary:#b0a890;
-      --text-muted:    #6e6857;
-      --quote-blue:    #b0e0e6;
-      --border:        rgba(201, 168, 76, 0.2);
-      --border-hover:  rgba(201, 168, 76, 0.5);
-      --shadow:        rgba(0, 0, 0, 0.6);
-      --nav-bg:        #0e1428;
-      --card-bg:       #161e36;
-      --hero-overlay:  rgba(10, 13, 26, 0.65);
-      --slide-bg:      #0a0d1a;
-      --rule-color:    rgba(201, 168, 76, 0.4);
-      --tag-bg:        rgba(61, 79, 140, 0.3);
-      --img-border:    rgba(201, 168, 76, 0.2);
-      --scrollbar-bg:  #0a0d1a;
-      --thumb-bg:      #c9a84c;
-      --note-bg:       rgba(61, 79, 140, 0.15);
-    }
+      :root {
+        --bg-deep: #0a0d1a;
+        --bg-mid: #0e1428;
+        --bg-section: #111830;
+        --bg-card: #161e36;
+        --gold: #c9a84c;
+        --gold-light: #e2c97e;
+        --gold-pale: #f0e0aa;
+        --indigo: #3d4f8c;
+        --indigo-light: #5a72bf;
+        --violet: #9c4fa0;
+        --text-primary: #e8e2d4;
+        --text-secondary: #b0a890;
+        --text-muted: #6e6857;
+        --quote-blue: #b0e0e6;
+        --border: rgba(
+          201,
+          168,
+          76,
+          0.2
+        );
+        --border-hover: rgba(
+          201,
+          168,
+          76,
+          0.5
+        );
+        --shadow: rgba(0, 0, 0, 0.6);
+        --nav-bg: #0e1428;
+        --card-bg: #161e36;
+        --hero-overlay: rgba(
+          10,
+          13,
+          26,
+          0.65
+        );
+        --slide-bg: #0a0d1a;
+        --rule-color: rgba(
+          201,
+          168,
+          76,
+          0.4
+        );
+        --tag-bg: rgba(
+          61,
+          79,
+          140,
+          0.3
+        );
+        --img-border: rgba(
+          201,
+          168,
+          76,
+          0.2
+        );
+        --scrollbar-bg: #0a0d1a;
+        --thumb-bg: #c9a84c;
+        --note-bg: rgba(
+          61,
+          79,
+          140,
+          0.15
+        );
+      }
 
-    /* ============================================================
+      /* ============================================================
        LIGHT MODE
        ============================================================ */
-    [data-theme="light"] {
-      --bg-deep:       #f7f3eb;
-      --bg-mid:        #ede7d9;
-      --bg-section:    #f0ead8;
-      --bg-card:       #e8e0cc;
-      --gold:          #8b6914;
-      --gold-light:    #6b5010;
-      --gold-pale:     #4a3508;
-      --indigo:        #3d4f8c;
-      --indigo-light:  #2e3d72;
-      --violet:        #7a3a7e;
-      --text-primary:  #1a1608;
-      --text-secondary:#3d3420;
-      --text-muted:    #7a6e50;
-      --quote-blue:    #1a5a6e;
-      --border:        rgba(139, 105, 20, 0.25);
-      --border-hover:  rgba(139, 105, 20, 0.6);
-      --shadow:        rgba(0, 0, 0, 0.15);
-      --nav-bg:        #ede7d9;
-      --card-bg:       #e8e0cc;
-      --hero-overlay:  rgba(247, 243, 235, 0.55);
-      --slide-bg:      #f7f3eb;
-      --rule-color:    rgba(139, 105, 20, 0.35);
-      --tag-bg:        rgba(61, 79, 140, 0.12);
-      --img-border:    rgba(139, 105, 20, 0.25);
-      --scrollbar-bg:  #ede7d9;
-      --thumb-bg:      #8b6914;
-      --note-bg:       rgba(61, 79, 140, 0.08);
-    }
+      [data-theme='light'] {
+        --bg-deep: #f7f3eb;
+        --bg-mid: #ede7d9;
+        --bg-section: #f0ead8;
+        --bg-card: #e8e0cc;
+        --gold: #8b6914;
+        --gold-light: #6b5010;
+        --gold-pale: #4a3508;
+        --indigo: #3d4f8c;
+        --indigo-light: #2e3d72;
+        --violet: #7a3a7e;
+        --text-primary: #1a1608;
+        --text-secondary: #3d3420;
+        --text-muted: #7a6e50;
+        --quote-blue: #1a5a6e;
+        --border: rgba(
+          139,
+          105,
+          20,
+          0.25
+        );
+        --border-hover: rgba(
+          139,
+          105,
+          20,
+          0.6
+        );
+        --shadow: rgba(0, 0, 0, 0.15);
+        --nav-bg: #ede7d9;
+        --card-bg: #e8e0cc;
+        --hero-overlay: rgba(
+          247,
+          243,
+          235,
+          0.55
+        );
+        --slide-bg: #f7f3eb;
+        --rule-color: rgba(
+          139,
+          105,
+          20,
+          0.35
+        );
+        --tag-bg: rgba(
+          61,
+          79,
+          140,
+          0.12
+        );
+        --img-border: rgba(
+          139,
+          105,
+          20,
+          0.25
+        );
+        --scrollbar-bg: #ede7d9;
+        --thumb-bg: #8b6914;
+        --note-bg: rgba(
+          61,
+          79,
+          140,
+          0.08
+        );
+      }
 
-    /* ============================================================
+      /* ============================================================
        RESET & BASE
        ============================================================ */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-    html { scroll-behavior: smooth; font-size: 16px; height: 100%; }
+      html {
+        scroll-behavior: smooth;
+        font-size: 16px;
+        height: 100%;
+      }
 
-    body {
-      font-family: 'Raleway', sans-serif;
-      background: var(--bg-deep);
-      color: var(--text-primary);
-      line-height: 1.8;
-      height: 100%;
-      overflow: hidden;
-      transition: background 0.35s ease, color 0.35s ease;
-    }
+      body {
+        font-family: 'Raleway',
+          sans-serif;
+        background: var(--bg-deep);
+        color: var(--text-primary);
+        line-height: 1.8;
+        height: 100%;
+        overflow: hidden;
+        transition: background 0.35s
+            ease,
+          color 0.35s ease;
+      }
 
-    a, a:visited { color: var(--gold-light); text-decoration: underline; text-underline-offset: 3px; }
-    a:hover { color: var(--text-primary); }
+      a,
+      a:visited {
+        color: var(--gold-light);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+      a:hover {
+        color: var(--text-primary);
+      }
 
-    em { font-style: italic; }
+      em {
+        font-style: italic;
+      }
 
-    ::-webkit-scrollbar { width: 5px; height: 5px; }
-    ::-webkit-scrollbar-track { background: var(--scrollbar-bg); }
-    ::-webkit-scrollbar-thumb { background: var(--thumb-bg); border-radius: 3px; }
+      ::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--scrollbar-bg);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--thumb-bg);
+        border-radius: 3px;
+      }
 
-    /* ============================================================
+      /* ============================================================
        APP SHELL
        ============================================================ */
-    #app {
-      display: flex;
-      flex-direction: column;
-      height: 100dvh;
-      overflow: hidden;
-      position: relative;
-    }
+      #app {
+        display: flex;
+        flex-direction: column;
+        height: 100dvh;
+        overflow: hidden;
+        position: relative;
+      }
 
-    /* ============================================================
+      /* ============================================================
        TOP BAR (mobile header)
        ============================================================ */
-    #topbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.6rem 1rem;
-      background: var(--nav-bg);
-      border-bottom: 1px solid var(--border);
-      flex-shrink: 0;
-      z-index: 200;
-      gap: 0.5rem;
-    }
+      #topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.6rem 1rem;
+        background: var(--nav-bg);
+        border-bottom: 1px solid
+          var(--border);
+        flex-shrink: 0;
+        z-index: 200;
+        gap: 0.5rem;
+      }
 
-    #topbar-left {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      min-width: 0;
-    }
+      #topbar-left {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        min-width: 0;
+      }
 
-    #menu-btn {
-      background: none;
-      border: 1px solid var(--border);
-      color: var(--gold);
-      font-size: 1.2rem;
-      padding: 6px 10px;
-      border-radius: 6px;
-      cursor: pointer;
-      flex-shrink: 0;
-      transition: border-color 0.2s, color 0.2s;
-      line-height: 1;
-    }
-    #menu-btn:hover { border-color: var(--gold); }
+      #menu-btn {
+        background: none;
+        border: 1px solid var(--border);
+        color: var(--gold);
+        font-size: 1.2rem;
+        padding: 6px 10px;
+        border-radius: 6px;
+        cursor: pointer;
+        flex-shrink: 0;
+        transition: border-color 0.2s,
+          color 0.2s;
+        line-height: 1;
+      }
+      #menu-btn:hover {
+        border-color: var(--gold);
+      }
 
-    #topbar-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.8rem;
-      letter-spacing: 0.08em;
-      color: var(--gold-light);
-      text-transform: uppercase;
-      font-weight: 300;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
+      #topbar-title {
+        font-family: 'Cormorant Garamond',
+          serif;
+        font-size: 0.8rem;
+        letter-spacing: 0.08em;
+        color: var(--gold-light);
+        text-transform: uppercase;
+        font-weight: 300;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
 
-    #topbar-right {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      flex-shrink: 0;
-    }
+      #topbar-right {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        flex-shrink: 0;
+      }
 
-    /* Theme toggle */
-    #theme-btn {
-      background: none;
-      border: 1px solid var(--border);
-      color: var(--gold);
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      cursor: pointer;
-      font-size: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: border-color 0.2s, background 0.2s;
-      flex-shrink: 0;
-    }
-    #theme-btn:hover { border-color: var(--gold); background: var(--border); }
-    .theme-icon-dark { display: none; }
-    .theme-icon-light { display: block; }
-    [data-theme="light"] .theme-icon-dark { display: block; }
-    [data-theme="light"] .theme-icon-light { display: none; }
+      /* Theme toggle */
+      #theme-btn {
+        background: none;
+        border: 1px solid var(--border);
+        color: var(--gold);
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: border-color 0.2s,
+          background 0.2s;
+        flex-shrink: 0;
+      }
+      #theme-btn:hover {
+        border-color: var(--gold);
+        background: var(--border);
+      }
+      .theme-icon-dark {
+        display: none;
+      }
+      .theme-icon-light {
+        display: block;
+      }
+      [data-theme='light']
+        .theme-icon-dark {
+        display: block;
+      }
+      [data-theme='light']
+        .theme-icon-light {
+        display: none;
+      }
 
-    #slide-counter-top {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      letter-spacing: 0.05em;
-      white-space: nowrap;
-    }
+      #slide-counter-top {
+        font-family: 'Cormorant Garamond',
+          serif;
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        letter-spacing: 0.05em;
+        white-space: nowrap;
+      }
 
-    /* ============================================================
+      /* ============================================================
        SLIDE AREA
        ============================================================ */
-    #slide-area {
-      flex: 1;
-      overflow: hidden;
-      position: relative;
-    }
+      #slide-area {
+        flex: 1;
+        overflow: hidden;
+        position: relative;
+      }
 
-    .slide {
-      position: absolute;
-      inset: 0;
-      overflow-y: auto;
-      overflow-x: hidden;
-      background: var(--slide-bg);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-    }
-    .slide.active {
-      opacity: 1;
-      pointer-events: auto;
-    }
+      .slide {
+        position: absolute;
+        inset: 0;
+        overflow-y: auto;
+        overflow-x: hidden;
+        background: var(--slide-bg);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+      }
+      .slide.active {
+        opacity: 1;
+        pointer-events: auto;
+      }
 
-    /* ============================================================
+      /* ============================================================
        BOTTOM NAV BAR
        ============================================================ */
-    #bottom-nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.55rem 1rem;
-      background: var(--nav-bg);
-      border-top: 1px solid var(--border);
-      flex-shrink: 0;
-      z-index: 200;
-      gap: 0.5rem;
-    }
+      #bottom-nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.55rem 1rem;
+        background: var(--nav-bg);
+        border-top: 1px solid
+          var(--border);
+        flex-shrink: 0;
+        z-index: 200;
+        gap: 0.5rem;
+      }
 
-    .nav-btn {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      color: var(--gold);
-      padding: 8px 18px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1rem;
-      transition: border-color 0.2s, background 0.2s, color 0.2s;
-      flex-shrink: 0;
-    }
-    .nav-btn:hover:not(:disabled) { border-color: var(--gold); background: var(--border); }
-    .nav-btn:disabled { opacity: 0.3; cursor: default; }
+      .nav-btn {
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        color: var(--gold);
+        padding: 8px 18px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-family: 'Cormorant Garamond',
+          serif;
+        font-size: 1rem;
+        transition: border-color 0.2s,
+          background 0.2s, color 0.2s;
+        flex-shrink: 0;
+      }
+      .nav-btn:hover:not(:disabled) {
+        border-color: var(--gold);
+        background: var(--border);
+      }
+      .nav-btn:disabled {
+        opacity: 0.3;
+        cursor: default;
+      }
 
-    #slide-counter {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1rem;
-      color: var(--text-secondary);
-      letter-spacing: 0.1em;
-      text-align: center;
-      flex: 1;
-    }
+      #slide-counter {
+        font-family: 'Cormorant Garamond',
+          serif;
+        font-size: 1rem;
+        color: var(--text-secondary);
+        letter-spacing: 0.1em;
+        text-align: center;
+        flex: 1;
+      }
 
-    /* ============================================================
+      /* ============================================================
        SIDE DRAWER (nav)
        ============================================================ */
-    #drawer-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.5);
-      z-index: 400;
-    }
-    #drawer-overlay.open { display: block; }
+      #drawer-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 400;
+      }
+      #drawer-overlay.open {
+        display: block;
+      }
 
-    #drawer {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: min(280px, 85vw);
-      height: 100dvh;
-      background: var(--nav-bg);
-      border-right: 1px solid var(--border);
-      z-index: 500;
-      display: flex;
-      flex-direction: column;
-      transform: translateX(-100%);
-      transition: transform 0.3s ease;
-      overflow: hidden;
-    }
-    #drawer.open { transform: translateX(0); }
+      #drawer {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: min(280px, 85vw);
+        height: 100dvh;
+        background: var(--nav-bg);
+        border-right: 1px solid
+          var(--border);
+        z-index: 500;
+        display: flex;
+        flex-direction: column;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        overflow: hidden;
+      }
+      #drawer.open {
+        transform: translateX(0);
+      }
 
-    #drawer-header {
-      padding: 1.5rem 1.25rem 1.25rem;
-      border-bottom: 1px solid var(--border);
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.75rem;
-    }
+      #drawer-header {
+        padding: 1.5rem 1.25rem 1.25rem;
+        border-bottom: 1px solid
+          var(--border);
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem;
+      }
 
-    #drawer-sigil {
-      font-size: 1.5rem;
-      color: var(--gold-light);
-      opacity: 0.85;
-      cursor: pointer;
-      text-decoration: none;
-      transition: opacity 0.2s;
-    }
-    #drawer-sigil:hover { opacity: 1; }
+      #drawer-sigil {
+        font-size: 1.5rem;
+        color: var(--gold-light);
+        opacity: 0.85;
+        cursor: pointer;
+        text-decoration: none;
+        transition: opacity 0.2s;
+      }
+      #drawer-sigil:hover {
+        opacity: 1;
+      }
 
-    #drawer-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.78rem;
-      font-weight: 300;
-      color: var(--gold-light);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      line-height: 1.5;
-      flex: 1;
-    }
+      #drawer-title {
+        font-family: 'Cormorant Garamond',
+          serif;
+        font-size: 0.78rem;
+        font-weight: 300;
+        color: var(--gold-light);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        line-height: 1.5;
+        flex: 1;
+      }
 
-    #drawer-close {
-      background: none;
-      border: 1px solid var(--border);
-      color: var(--text-muted);
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      cursor: pointer;
-      font-size: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      transition: border-color 0.2s, color 0.2s;
-    }
-    #drawer-close:hover { border-color: var(--gold); color: var(--gold); }
+      #drawer-close {
+        background: none;
+        border: 1px solid var(--border);
+        color: var(--text-muted);
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        transition: border-color 0.2s,
+          color 0.2s;
+      }
+      #drawer-close:hover {
+        border-color: var(--gold);
+        color: var(--gold);
+      }
 
-    #drawer-nav {
-      overflow-y: auto;
-      flex: 1;
-      padding: 0.75rem 0;
-    }
+      #drawer-nav {
+        overflow-y: auto;
+        flex: 1;
+        padding: 0.75rem 0;
+      }
 
-    #drawer-nav ul { list-style: none; }
+      #drawer-nav ul {
+        list-style: none;
+      }
 
-    #drawer-nav li a {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      padding: 0.65rem 1.25rem;
-      color: var(--text-secondary);
-      text-decoration: none;
-      font-size: 0.82rem;
-      letter-spacing: 0.03em;
-      border-left: 2px solid transparent;
-      transition: color 0.2s, border-color 0.2s, background 0.2s;
-    }
-    #drawer-nav li a:hover {
-      color: var(--gold-light);
-      background: var(--border);
-      border-left-color: var(--border-hover);
-    }
-    #drawer-nav li a.active {
-      color: var(--gold-light);
-      border-left-color: var(--gold);
-      background: rgba(201, 168, 76, 0.06);
-    }
+      #drawer-nav li a {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.65rem 1.25rem;
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-size: 0.82rem;
+        letter-spacing: 0.03em;
+        border-left: 2px solid
+          transparent;
+        transition: color 0.2s,
+          border-color 0.2s,
+          background 0.2s;
+      }
+      #drawer-nav li a:hover {
+        color: var(--gold-light);
+        background: var(--border);
+        border-left-color: var(
+          --border-hover
+        );
+      }
+      #drawer-nav li a.active {
+        color: var(--gold-light);
+        border-left-color: var(--gold);
+        background: rgba(
+          201,
+          168,
+          76,
+          0.06
+        );
+      }
 
-    .nav-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.72rem;
-      color: var(--text-muted);
-      min-width: 20px;
-      flex-shrink: 0;
-    }
+      .nav-num {
+        font-family: 'Cormorant Garamond',
+          serif;
+        font-size: 0.72rem;
+        color: var(--text-muted);
+        min-width: 20px;
+        flex-shrink: 0;
+      }
 
-    /* ============================================================
+      /* ============================================================
        HERO SLIDE
        ============================================================ */
-    .hero-slide {
-      min-height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 3rem 2rem;
-      background: var(--bg-deep);
-      position: relative;
-    }
+      .hero-slide {
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 3rem 2rem;
+        background: var(--bg-deep);
+        position: relative;
+      }
 
-    .hero-slide::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at 50% 40%, rgba(61,79,140,0.18) 0%, transparent 65%),
-                  radial-gradient(ellipse at 80% 80%, rgba(156,79,160,0.08) 0%, transparent 50%);
-      pointer-events: none;
-    }
+      .hero-slide::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+            ellipse at 50% 40%,
+            rgba(61, 79, 140, 0.18) 0%,
+            transparent 65%
+          ),
+          radial-gradient(
+            ellipse at 80% 80%,
+            rgba(156, 79, 160, 0.08) 0%,
+            transparent 50%
+          );
+        pointer-events: none;
+      }
 
-    .hero-eyebrow {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.8rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1.5rem;
-      position: relative;
-    }
+      .hero-eyebrow {
+        font-family: 'Cormorant Garamond',
+          serif;
+        font-size: 0.8rem;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 1.5rem;
+        position: relative;
+      }
 
-    .hero h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2rem, 7vw, 3.2rem);
-      font-weight: 300;
-      line-height: 1.2;
-      color: var(--text-primary);
-      margin-bottom: 1.5rem;
-      position: relative;
-    }
+      .hero h1 {
+        font-family: 'Cormorant Garamond',
+          serif;
+        font-size: clamp(
+          2rem,
+          7vw,
+          3.2rem
+        );
+        font-weight: 300;
+        line-height: 1.2;
+        color: var(--text-primary);
+        margin-bottom: 1.5rem;
+        position: relative;
+      }
 
-    .hero h1 em {
-      color: var(--gold-light);
-      font-style: italic;
-    }
+      .hero h1 em {
+        color: var(--gold-light);
+        font-style: italic;
+      }
 
-    .hero-rule {
-      width: 80px;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
-      margin: 0 auto 1.5rem;
-    }
+      .hero-rule {
+        width: 80px;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--gold),
+          transparent
+        );
+        margin: 0 auto 1.5rem;
+      }
 
-    .hero-subtitle {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.05rem;
-      font-style: italic;
-      color: var(--text-secondary);
-      letter-spacing: 0.04em;
-    }
+      .hero-subtitle {
+        font-family: 'Cormorant Garamond',
+          serif;
+        font-size: 1.05rem;
+        font-style: italic;
+        color: var(--text-secondary);
+        letter-spacing: 0.04em;
+      }
 
-    .hero-sigil {
-      font-size: 2.5rem;
-      color: var(--gold);
-      opacity: 0.4;
-      margin-top: 3rem;
-      position: relative;
-      animation: pulse-sigil 4s ease-in-out infinite;
-    }
+      .hero-sigil {
+        font-size: 2.5rem;
+        color: var(--gold);
+        opacity: 0.4;
+        margin-top: 3rem;
+        position: relative;
+        animation: pulse-sigil 4s
+          ease-in-out infinite;
+      }
 
-    @keyframes pulse-sigil {
-      0%, 100% { opacity: 0.4; }
-      50% { opacity: 0.7; }
-    }
+      @keyframes pulse-sigil {
+        0%,
+        100% {
+          opacity: 0.4;
+        }
+        50% {
+          opacity: 0.7;
+        }
+      }
 
-    /* ============================================================
+      /* ============================================================
        SECTION SLIDES
        ============================================================ */
-    .section-slide {
-      min-height: 100%;
-      padding: 1.75rem 1.25rem 2rem;
-      background: var(--slide-bg);
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-    }
+      .section-slide {
+        min-height: 100%;
+        padding: 1.75rem 1.25rem 2rem;
+        background: var(--slide-bg);
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+      }
 
-    /* Section header */
-    .sec-header {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
+      /* Section header */
+      .sec-header {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+      }
 
-    .sec-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.7rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      opacity: 0.7;
-    }
+      .sec-num {
+        font-family: 'Cormorant Garamond',
+          serif;
+        font-size: 0.7rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--gold);
+        opacity: 0.7;
+      }
 
-    .sec-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.5rem, 5vw, 2rem);
-      font-weight: 300;
-      color: var(--text-primary);
-      line-height: 1.2;
-    }
+      .sec-title {
+        font-family: 'Cormorant Garamond',
+          serif;
+        font-size: clamp(
+          1.5rem,
+          5vw,
+          2rem
+        );
+        font-weight: 300;
+        color: var(--text-primary);
+        line-height: 1.2;
+      }
 
-    .sec-rule {
-      width: 50px;
-      height: 1px;
-      background: linear-gradient(90deg, var(--gold), transparent);
-      margin-top: 0.3rem;
-    }
+      .sec-rule {
+        width: 50px;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          var(--gold),
+          transparent
+        );
+        margin-top: 0.3rem;
+      }
 
-    /* Section body text */
-    .sec-body {
-      font-size: 0.92rem;
-      color: var(--text-secondary);
-      line-height: 1.85;
-    }
+      /* Section body text */
+      .sec-body {
+        font-size: 0.92rem;
+        color: var(--text-secondary);
+        line-height: 1.85;
+      }
 
-    .sec-body p + p { margin-top: 0.85rem; }
+      .sec-body p + p {
+        margin-top: 0.85rem;
+      }
 
-    .sec-body h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.2rem;
-      font-weight: 400;
-      color: var(--gold-light);
-      margin-bottom: 0.5rem;
-    }
+      .sec-body h3 {
+        font-family: 'Cormorant Garamond',
+          serif;
+        font-size: 1.2rem;
+        font-weight: 400;
+        color: var(--gold-light);
+        margin-bottom: 0.5rem;
+      }
 
-    .sec-body h4 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.05rem;
-      font-weight: 400;
-      color: var(--text-primary);
-      margin-bottom: 0.35rem;
-    }
+      .sec-body h4 {
+        font-family: 'Cormorant Garamond',
+          serif;
+        font-size: 1.05rem;
+        font-weight: 400;
+        color: var(--text-primary);
+        margin-bottom: 0.35rem;
+      }
 
-    .sec-body em { color: var(--text-primary); }
+      .sec-body em {
+        color: var(--text-primary);
+      }
 
-    /* Images */
-    .slide-img {
-      width: 100%;
-      max-height: 320px;
-      object-fit: cover;
-      border-radius: 6px;
-      border: 1px solid var(--img-border);
-    }
-
-    .slide-img-portrait {
-      width: 100%;
-      max-height: 280px;
-      object-fit: cover;
-      object-position: center top;
-      border-radius: 6px;
-      border: 1px solid var(--img-border);
-    }
-
-    .panel-caption {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.7rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      text-align: center;
-      margin-top: 0.4rem;
-    }
-
-    /* Blockquote-style */
-    .sec-quote {
-      border-left: 2px solid var(--gold);
-      padding: 0.75rem 1rem;
-      background: var(--note-bg);
-      border-radius: 0 6px 6px 0;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1rem;
-      font-style: italic;
-      color: var(--quote-blue);
-      line-height: 1.7;
-    }
-
-    /* Info card */
-    .info-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1rem;
-    }
-
-    .info-card h4 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.95rem;
-      color: var(--gold-light);
-      margin-bottom: 0.5rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      font-weight: 400;
-    }
-
-    /* Tag / badge */
-    .element-tag {
-      display: inline-block;
-      background: var(--tag-bg);
-      border: 1px solid var(--border);
-      color: var(--indigo-light);
-      font-size: 0.65rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      padding: 3px 8px;
-      border-radius: 4px;
-      margin-bottom: 0.4rem;
-    }
-
-    /* Bullet list */
-    .sec-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    .sec-list li {
-      padding-left: 1.25rem;
-      position: relative;
-      font-size: 0.92rem;
-      color: var(--text-secondary);
-    }
-
-    .sec-list li::before {
-      content: '✦';
-      position: absolute;
-      left: 0;
-      top: 0.05em;
-      font-size: 0.5rem;
-      color: var(--gold);
-    }
-
-    /* Side-by-side image + text (stacks on narrow screens) */
-    .sec-split {
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-    }
-
-    .sec-split-media {
-      flex-shrink: 0;
-    }
-
-    @media (max-width: 599px) {
-      .sec-split-media {
+      /* Images */
+      .slide-img {
         width: 100%;
+        max-height: 320px;
+        object-fit: cover;
+        border-radius: 6px;
+        border: 1px solid
+          var(--img-border);
       }
-    }
 
-    .sec-split-media .slide-img-portrait {
-      width: 100%;
-      max-height: none;
-      height: auto;
-      object-fit: contain;
-    }
+      .slide-img-portrait {
+        width: 100%;
+        max-height: 280px;
+        object-fit: cover;
+        object-position: center top;
+        border-radius: 6px;
+        border: 1px solid
+          var(--img-border);
+      }
 
-    .sec-split-body {
-      flex: 1;
-      min-width: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-    }
+      .panel-caption {
+        font-family: 'Cormorant Garamond',
+          serif;
+        font-size: 0.7rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        text-align: center;
+        margin-top: 0.4rem;
+      }
 
-    /* Responsive video embed */
-    .video-embed {
-      position: relative;
-      width: 100%;
-      padding-bottom: 56.25%;
-      height: 0;
-      overflow: hidden;
-      border-radius: 6px;
-      border: 1px solid var(--img-border);
-      background: #000;
-    }
+      /* Blockquote-style */
+      .sec-quote {
+        border-left: 2px solid
+          var(--gold);
+        padding: 0.75rem 1rem;
+        background: var(--note-bg);
+        border-radius: 0 6px 6px 0;
+        font-family: 'Cormorant Garamond',
+          serif;
+        font-size: 1rem;
+        font-style: italic;
+        color: var(--quote-blue);
+        line-height: 1.7;
+      }
 
-    .video-embed iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
+      /* Info card */
+      .info-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 1rem;
+      }
 
-    .video-label {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.75rem;
-      letter-spacing: 0.06em;
-      color: var(--text-muted);
-      text-align: center;
-      font-style: italic;
-      margin-top: 0.5rem;
-    }
+      .info-card h4 {
+        font-family: 'Cormorant Garamond',
+          serif;
+        font-size: 0.95rem;
+        color: var(--gold-light);
+        margin-bottom: 0.5rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        font-weight: 400;
+      }
 
-    @media (min-width: 600px) {
+      /* Tag / badge */
+      .element-tag {
+        display: inline-block;
+        background: var(--tag-bg);
+        border: 1px solid var(--border);
+        color: var(--indigo-light);
+        font-size: 0.65rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        padding: 3px 8px;
+        border-radius: 4px;
+        margin-bottom: 0.4rem;
+      }
+
+      /* Bullet list */
+      .sec-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .sec-list li {
+        padding-left: 1.25rem;
+        position: relative;
+        font-size: 0.92rem;
+        color: var(--text-secondary);
+      }
+
+      .sec-list li::before {
+        content: '✦';
+        position: absolute;
+        left: 0;
+        top: 0.05em;
+        font-size: 0.5rem;
+        color: var(--gold);
+      }
+
+      /* Side-by-side image + text (stacks on narrow screens) */
       .sec-split {
-        flex-direction: row;
-        align-items: flex-start;
-        gap: 1.75rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
       }
 
       .sec-split-media {
-        flex: 0 0 min(38%, 280px);
+        flex-shrink: 0;
       }
 
-      .sec-split--video .sec-split-media {
-        flex: 0 0 min(42%, 400px);
+      @media (max-width: 599px) {
+        .sec-split-media {
+          width: 100%;
+        }
       }
 
-      .sec-split-media .slide-img-portrait {
+      .sec-split-media
+        .slide-img-portrait {
+        width: 100%;
         max-height: none;
         height: auto;
-        object-fit: cover;
+        object-fit: contain;
       }
-    }
 
-    /* Evo plan label */
-    .evo-plan {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.88rem;
-      font-style: italic;
-      color: var(--text-secondary);
-      border-left: 1px solid var(--border);
-      padding-left: 0.75rem;
-      line-height: 1.7;
-      margin-bottom: 0.75rem;
-    }
+      .sec-split-body {
+        flex: 1;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+      }
 
-    /* ============================================================
+      /* Responsive video embed */
+      .video-embed {
+        position: relative;
+        width: 100%;
+        padding-bottom: 56.25%;
+        height: 0;
+        overflow: hidden;
+        border-radius: 6px;
+        border: 1px solid
+          var(--img-border);
+        background: #000;
+      }
+
+      .video-embed iframe {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      .video-label {
+        font-family: 'Cormorant Garamond',
+          serif;
+        font-size: 0.75rem;
+        letter-spacing: 0.06em;
+        color: var(--text-muted);
+        text-align: center;
+        font-style: italic;
+        margin-top: 0.5rem;
+      }
+
+      @media (min-width: 600px) {
+        .sec-split {
+          flex-direction: row;
+          align-items: flex-start;
+          gap: 1.75rem;
+        }
+
+        .sec-split-media {
+          flex: 0 0 min(38%, 280px);
+        }
+
+        .sec-split--video
+          .sec-split-media {
+          flex: 0 0 min(42%, 400px);
+        }
+
+        .sec-split-media
+          .slide-img-portrait {
+          max-height: none;
+          height: auto;
+          object-fit: cover;
+        }
+      }
+
+      /* Evo plan label */
+      .evo-plan {
+        font-family: 'Cormorant Garamond',
+          serif;
+        font-size: 0.88rem;
+        font-style: italic;
+        color: var(--text-secondary);
+        border-left: 1px solid
+          var(--border);
+        padding-left: 0.75rem;
+        line-height: 1.7;
+        margin-bottom: 0.75rem;
+      }
+
+      /* ============================================================
        CAROUSEL
        ============================================================ */
-    .carousel-wrap {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
+      .carousel-wrap {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
 
-    .carousel-viewport {
-      overflow: hidden;
-      border-radius: 8px;
-    }
+      .carousel-viewport {
+        overflow: hidden;
+        border-radius: 8px;
+      }
 
-    .carousel-track-inner {
-      display: flex;
-      transition: transform 0.35s ease;
-    }
+      .carousel-track-inner {
+        display: flex;
+        transition: transform 0.35s ease;
+      }
 
-    .carousel-item {
-      min-width: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      padding: 1rem;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-    }
+      .carousel-item {
+        min-width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: 1rem;
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+      }
 
-    .carousel-item img {
-      width: 100%;
-      max-height: 260px;
-      object-fit: contain;
-      border-radius: 4px;
-    }
+      .carousel-item img {
+        width: 100%;
+        max-height: 260px;
+        object-fit: contain;
+        border-radius: 4px;
+      }
 
-    .carousel-controls {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.75rem;
-    }
+      .carousel-controls {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+      }
 
-    .car-btn {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      color: var(--gold);
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      cursor: pointer;
-      font-size: 0.9rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: border-color 0.2s, background 0.2s;
-      flex-shrink: 0;
-    }
-    .car-btn:hover { border-color: var(--gold); background: var(--border); }
+      .car-btn {
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        color: var(--gold);
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: border-color 0.2s,
+          background 0.2s;
+        flex-shrink: 0;
+      }
+      .car-btn:hover {
+        border-color: var(--gold);
+        background: var(--border);
+      }
 
-    .car-dots {
-      display: flex;
-      gap: 6px;
-      align-items: center;
-    }
+      .car-dots {
+        display: flex;
+        gap: 6px;
+        align-items: center;
+      }
 
-    .car-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--border-hover);
-      cursor: pointer;
-      transition: background 0.2s, transform 0.2s;
-    }
-    .car-dot.active {
-      background: var(--gold);
-      transform: scale(1.3);
-    }
+      .car-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--border-hover);
+        cursor: pointer;
+        transition: background 0.2s,
+          transform 0.2s;
+      }
+      .car-dot.active {
+        background: var(--gold);
+        transform: scale(1.3);
+      }
 
-    /* ============================================================
+      /* ============================================================
        IMAGE GRID (insect kingdom)
        ============================================================ */
-    .img-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0.5rem;
-    }
+      .img-grid {
+        display: grid;
+        grid-template-columns: repeat(
+          3,
+          1fr
+        );
+        gap: 0.5rem;
+      }
 
-    .img-grid-item {
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-    }
+      .img-grid-item {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+      }
 
-    .img-grid-item img {
-      width: 100%;
-      aspect-ratio: 1;
-      object-fit: cover;
-      border-radius: 4px;
-      border: 1px solid var(--img-border);
-    }
+      .img-grid-item img {
+        width: 100%;
+        aspect-ratio: 1;
+        object-fit: cover;
+        border-radius: 4px;
+        border: 1px solid
+          var(--img-border);
+      }
 
-    /* ============================================================
+      /* ============================================================
        REFERENCES
        ============================================================ */
-    .ref-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
+      .ref-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
 
-    .ref-item {
-      display: flex;
-      gap: 0.6rem;
-      align-items: baseline;
-      padding: 0.65rem 0.85rem;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-    }
+      .ref-item {
+        display: flex;
+        gap: 0.6rem;
+        align-items: baseline;
+        padding: 0.65rem 0.85rem;
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+      }
 
-    .ref-type {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.62rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--gold);
-      flex-shrink: 0;
-      padding-top: 0.05em;
-    }
+      .ref-type {
+        font-family: 'Cormorant Garamond',
+          serif;
+        font-size: 0.62rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--gold);
+        flex-shrink: 0;
+        padding-top: 0.05em;
+      }
 
-    .ref-item a {
-      font-size: 0.88rem;
-      line-height: 1.4;
-    }
+      .ref-item a {
+        font-size: 0.88rem;
+        line-height: 1.4;
+      }
 
-    /* ============================================================
+      /* ============================================================
        FOOTER
        ============================================================ */
-    .slide-footer {
-      margin-top: auto;
-      padding-top: 2rem;
-      text-align: center;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      font-style: italic;
-      line-height: 1.6;
-    }
+      .slide-footer {
+        margin-top: auto;
+        padding-top: 2rem;
+        text-align: center;
+        font-family: 'Cormorant Garamond',
+          serif;
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        font-style: italic;
+        line-height: 1.6;
+      }
 
-    /* ============================================================
+      /* ============================================================
        SPEAKER NOTES
        ============================================================ */
-    .speaker-notes {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.85rem;
-      color: var(--quote-blue);
-      line-height: 1.7;
-      font-style: italic;
-      margin-top: 0.25rem;
-    }
+      .speaker-notes {
+        font-family: 'Cormorant Garamond',
+          serif;
+        font-size: 0.85rem;
+        color: var(--quote-blue);
+        line-height: 1.7;
+        font-style: italic;
+        margin-top: 0.25rem;
+      }
 
-    /* ============================================================
+      /* ============================================================
        SPEAKER NOTES TOGGLE
        ============================================================ */
-    .notes-toggle {
-      display: none; /* hidden on mobile — desktop feature */
-    }
+      .notes-toggle {
+        display: none; /* hidden on mobile — desktop feature */
+      }
 
-    /* ============================================================
+      /* ============================================================
        TABLET+ ADJUSTMENTS
        ============================================================ */
-    @media (min-width: 600px) {
-      .section-slide { padding: 2rem 2rem 2.5rem; }
-      .slide-img { max-height: 400px; }
-      .carousel-item { flex-direction: row; }
-      .carousel-item img { max-height: 280px; width: 45%; }
-      .carousel-item .carousel-item-text { flex: 1; }
-    }
+      @media (min-width: 600px) {
+        .section-slide {
+          padding: 2rem 2rem 2.5rem;
+        }
+        .slide-img {
+          max-height: 400px;
+        }
+        .carousel-item {
+          flex-direction: row;
+        }
+        .carousel-item img {
+          max-height: 280px;
+          width: 45%;
+        }
+        .carousel-item
+          .carousel-item-text {
+          flex: 1;
+        }
+      }
 
-    @media (min-width: 900px) {
-      #topbar-title { font-size: 0.9rem; }
-      .hero h1 { font-size: 3.5rem; }
-      .sec-title { font-size: 2.2rem; }
-    }
+      @media (min-width: 900px) {
+        #topbar-title {
+          font-size: 0.9rem;
+        }
+        .hero h1 {
+          font-size: 3.5rem;
+        }
+        .sec-title {
+          font-size: 2.2rem;
+        }
+      }
 
-    /* Fade-in animation */
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(16px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+      /* Fade-in animation */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(16px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
 
-    .slide.active .sec-header,
-    .slide.active .sec-body,
-    .slide.active .sec-quote,
-    .slide.active .carousel-wrap,
-    .slide.active .info-card,
-    .slide.active .sec-list {
-      animation: fadeInUp 0.4s ease both;
-    }
+      .slide.active .sec-header,
+      .slide.active .sec-body,
+      .slide.active .sec-quote,
+      .slide.active .carousel-wrap,
+      .slide.active .info-card,
+      .slide.active .sec-list {
+        animation: fadeInUp 0.4s ease
+          both;
+      }
 
-    .slide.active .sec-body { animation-delay: 0.05s; }
-    .slide.active .sec-quote { animation-delay: 0.1s; }
-    .slide.active .carousel-wrap { animation-delay: 0.1s; }
-  </style>
-</head>
-<body>
-
-<div id="app">
-
-  <!-- TOP BAR -->
-  <header id="topbar">
-    <div id="topbar-left">
-      <button id="menu-btn" aria-label="Open navigation">☰</button>
-      <span id="topbar-title">The Kingdom of the Gods</span>
-    </div>
-    <div id="topbar-right">
-      <span id="slide-counter-top">01 / 18</span>
-      <button id="theme-btn" aria-label="Toggle theme">
-        <span class="theme-icon-light">☀️</span>
-        <span class="theme-icon-dark">🌙</span>
-      </button>
-    </div>
-  </header>
-
-  <!-- SLIDE AREA -->
-  <div id="slide-area">
-
-    <!-- SLIDE 01: HERO -->
-    <div class="slide active" id="s01">
-      <div class="hero-slide hero">
-        <p class="hero-eyebrow">A Theosophical Exploration</p>
-        <h1>The Kingdom of the Gods:<br/><em>Invisible Realms</em></h1>
-        <div class="hero-rule"></div>
-        <p class="hero-subtitle">Based on the clairvoyant research of Geoffrey Hodson</p>
-        <div class="hero-sigil">✦</div>
-      </div>
-    </div>
-
-    <!-- SLIDE 02: Geoffrey Hodson -->
-    <div class="slide" id="s02">
-      <div class="section-slide">
-        <div class="sec-header">
-          <span class="sec-num">02 / 18</span>
-          <h2 class="sec-title">Geoffrey Hodson</h2>
-          <div class="sec-rule"></div>
+      .slide.active .sec-body {
+        animation-delay: 0.05s;
+      }
+      .slide.active .sec-quote {
+        animation-delay: 0.1s;
+      }
+      .slide.active .carousel-wrap {
+        animation-delay: 0.1s;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <!-- TOP BAR -->
+      <header id="topbar">
+        <div id="topbar-left">
+          <button
+            id="menu-btn"
+            aria-label="Open navigation"
+          >
+            ☰
+          </button>
+          <span id="topbar-title"
+            >The Kingdom of the
+            Gods</span
+          >
         </div>
-        <div class="sec-split">
-          <div class="sec-split-media">
-            <img src="https://hblake316.github.io/hidden-architects-react-typescript/images/geoffrey-hodson.jpg"
-                 alt="Geoffrey Hodson" class="slide-img-portrait" />
-          </div>
-          <div class="sec-body sec-split-body">
-            <h3>Geoffrey Hodson</h3>
-            <p>GEOFFREY HODSON was born and educated in England. During the First World War he served with distinction in the British Army and afterwards became actively interested in Theosophical studies. He carried out occult research in collaboration with doctors, physicists, anthropologists and archeologists.</p>
-            <p>For over 60 years Mr. Hodson lectured for the Theosophical Society, speaking in America, England, Europe, South Africa, India, New Zealand, Australia and the Far East. He was the author of about 40 books, dealing with topics such as meditation, the spiritual life, health and disease, and the life and powers of the occultist.</p>
-            <p>He carried out special and first-hand investigations of fairies and angelic evolution. Mr. Hodson was 4 times Director of Studies at the School of the Wisdom at the International Headquarters of the Theosophical Society, Adyar, Chennai.</p>
-          </div>
+        <div id="topbar-right">
+          <span id="slide-counter-top"
+            >01 / 18</span
+          >
+          <button
+            id="theme-btn"
+            aria-label="Toggle theme"
+          >
+            <span
+              class="theme-icon-light"
+              >☀️</span
+            >
+            <span
+              class="theme-icon-dark"
+              >🌙</span
+            >
+          </button>
         </div>
-      </div>
-    </div>
+      </header>
 
-    <!-- SLIDE 03: Jeffrey Mishlove -->
-    <div class="slide" id="s03">
-      <div class="section-slide">
-        <div class="sec-header">
-          <span class="sec-num">03 / 18</span>
-          <h2 class="sec-title">Jeffrey Mishlove</h2>
-          <div class="sec-rule"></div>
-        </div>
-        <div class="sec-split sec-split--video">
-          <div class="sec-split-media">
-            <div class="video-embed">
-              <iframe
-                src="https://www.youtube.com/embed/7WGssopZcig"
-                title="Jeffrey Mishlove on Geoffrey Hodson"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
-              ></iframe>
-            </div>
-            <p class="video-label">New Thinking Allowed — approx. 15 minutes</p>
-          </div>
-          <div class="sec-body sec-split-body">
-            <h3>Jeffrey Mishlove</h3>
-            <p>JEFFREY MISHLOVE is an American parapsychologist, author, and television host best known for his long-running interview series <em>Thinking Allowed</em> and its successor <em>New Thinking Allowed</em>, in which he explores consciousness, psychic phenomena, and human potential with leading researchers and thinkers.</p>
-            <p>He holds a unique distinction as the only person to earn a doctoral degree in parapsychology from an accredited American university (UC Berkeley, 1980). He is widely respected in the field for bringing rigorous, open-minded inquiry to topics that mainstream academia often dismisses.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- SLIDE 04: What Are the Gods? -->
-    <div class="slide" id="s04">
-      <div class="section-slide">
-        <div class="sec-header">
-          <span class="sec-num">04 / 18</span>
-          <h2 class="sec-title">What Are the Gods?</h2>
-          <div class="sec-rule"></div>
-        </div>
-        <div class="sec-body">
-          <h4>The Devic Kingdom</h4>
-          <ul class="sec-list">
-            <li>Hierarchical Orders of Intelligences distinct from humanity</li>
-            <li>Made up of Lesser and Greater Gods</li>
-            <li>Profoundly responsive to human thought and emotion</li>
-            <li>Genderless but they do express polarities</li>
-          </ul>
-        </div>
-        <img src="https://hblake316.github.io/hidden-architects-react-typescript/images/plate-5e0e3a9d-c8e8-4cb6-9f23-0637fe2d6110.png"
-             alt="Plate 18 - A God of the Southern Pacific" class="slide-img" />
-        <div class="panel-caption">PLATE 18 — A GOD OF THE SOUTHERN PACIFIC</div>
-        <div class="sec-quote">
-          "The unusual, pointed, oval shape produced by the flowing streams of its auric forces was clearly discernible. As the picture shows, great currents of power descend upon this sea God, are compressed within its aura and then released into the ocean beneath. This being is subordinate to a still greater God, responsible for the whole Pacific Ocean."
-        </div>
-      </div>
-    </div>
-
-    <!-- SLIDE 05: The Lesser Gods -->
-    <div class="slide" id="s05">
-      <div class="section-slide">
-        <div class="sec-header">
-          <span class="sec-num">05 / 18</span>
-          <h2 class="sec-title">The Lesser Gods</h2>
-          <div class="sec-rule"></div>
-        </div>
-        <div class="sec-body">
-          <p>The Lesser Gods are the Elementals, the Nature Spirits, most closely associated with the four classical elements. They are the builders, the unseen workforce of the natural world — constructing the forms of minerals, plants, animals, and weather; directing the growth of roots and crystals; guiding the movement of water and flame.</p>
-          <p>Pleasure is gained by Nature Spirits in moving, dancing, and flying along the lines of force within the fields of ether. Their life is one of thought-free, spontaneous play with the currents of creative energy.</p>
-          <p><em>Reference: <a href="https://www.amazon.com/Fairies-Work-Play-Quest-Book/dp/0835605531" target="_blank" rel="noopener noreferrer">Fairies at Work and at Play by Geoffrey Hodson, 1925</a></em></p>
-        </div>
-
-        <!-- Elemental Carousel -->
-        <div class="carousel-wrap" id="elem-carousel">
-          <div class="carousel-viewport">
-            <div class="carousel-track-inner" id="elem-track">
-
-              <div class="carousel-item">
-                <div class="carousel-item-text">
-                  <span class="element-tag">Air</span>
-                  <h4>Sylphs and Fairies</h4>
-                  <p class="sec-body">The elementals of air — swift, light, and mercurial. Associated with wind, breath, thought, and the upper atmosphere. Their forms often suggest feathers, wings, or streaming ribbons of light.</p>
-                </div>
-                <img src="https://hblake316.github.io/hidden-architects-react-typescript/images/plate-f532d61e-3881-4af1-ba7e-a3a0762fbbda.png" alt="Sylph" />
-                <div class="panel-caption">PLATE 2</div>
-              </div>
-
-              <div class="carousel-item">
-                <div class="carousel-item-text">
-                  <span class="element-tag">Fire</span>
-                  <h4>Salamanders</h4>
-                  <p class="sec-body">The elementals of fire — intense, rapid, and transformative. Salamanders are the hidden life of flame, living within and directing the energies of heat and combustion.</p>
-                </div>
-                <img src="https://hblake316.github.io/hidden-architects-react-typescript/images/plate-8ec1bfe5-2e13-41c9-853f-bc8cbb52ac15.png" alt="Salamander" />
-                <div class="panel-caption">PLATE 3</div>
-              </div>
-
-              <div class="carousel-item">
-                <div class="carousel-item-text">
-                  <span class="element-tag">Water</span>
-                  <h4>Undines and Water Sprites</h4>
-                  <p class="sec-body">The elementals of water — fluid, reflective, and emotionally attuned. They work within rivers, lakes, seas, and rain, and may appear as shimmering, translucent forms.</p>
-                </div>
-                <img src="https://hblake316.github.io/hidden-architects-react-typescript/images/plate-5e0e3a9d-c8e8-4cb6-9f23-0637fe2d6110.png" alt="Undine" />
-                <div class="panel-caption">PLATE 4</div>
-              </div>
-
-              <div class="carousel-item">
-                <div class="carousel-item-text">
-                  <span class="element-tag">Earth</span>
-                  <h4>Gnomes and Earth Spirits</h4>
-                  <p class="sec-body">The elementals of earth — dense, slow, and enormously patient. They work within soil and stone, directing the crystallization of minerals and the growth of roots deep underground.</p>
-                </div>
-                <img src="https://hblake316.github.io/hidden-architects-react-typescript/images/earth-gnome.jpg" alt="Earth Gnome" />
-                <div class="panel-caption">EARTH GNOME</div>
-              </div>
-
+      <!-- SLIDE AREA -->
+      <div id="slide-area">
+        <!-- SLIDE 01: HERO -->
+        <div
+          class="slide active"
+          id="s01"
+        >
+          <div class="hero-slide hero">
+            <p class="hero-eyebrow">
+              A Theosophical Exploration
+            </p>
+            <h1>
+              The Kingdom of the
+              Gods:<br /><em
+                >Invisible Realms</em
+              >
+            </h1>
+            <div
+              class="hero-rule"
+            ></div>
+            <p class="hero-subtitle">
+              Based on the clairvoyant
+              research of Geoffrey
+              Hodson
+            </p>
+            <div class="hero-sigil">
+              ✦
             </div>
           </div>
-          <div class="carousel-controls">
-            <button class="car-btn" id="elem-prev">◀</button>
-            <div class="car-dots" id="elem-dots">
-              <div class="car-dot active" data-idx="0"></div>
-              <div class="car-dot" data-idx="1"></div>
-              <div class="car-dot" data-idx="2"></div>
-              <div class="car-dot" data-idx="3"></div>
-            </div>
-            <button class="car-btn" id="elem-next">▶</button>
-          </div>
         </div>
-      </div>
-    </div>
 
-    <!-- SLIDE 06: Fairy Pancakes -->
-    <div class="slide" id="s06">
-      <div class="section-slide">
-        <div class="sec-header">
-          <span class="sec-num">06 / 18</span>
-          <h2 class="sec-title">Fairy Pancakes</h2>
-          <div class="sec-rule"></div>
-        </div>
-        <div class="sec-split sec-split--video">
-          <div class="sec-split-media">
-            <div class="video-embed">
-              <iframe
-                src="https://www.youtube.com/embed/5L1p4uXcJKo?si=CmnPh4tXjP4dmB_d"
-                title="Fairy Pancakes"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
-              ></iframe>
+        <!-- SLIDE 02: Geoffrey Hodson -->
+        <div class="slide" id="s02">
+          <div class="section-slide">
+            <div class="sec-header">
+              <span class="sec-num"
+                >02 / 18</span
+              >
+              <h2 class="sec-title">
+                Geoffrey Hodson
+              </h2>
+              <div
+                class="sec-rule"
+              ></div>
             </div>
-            <p class="video-label">Fairy Pancakes</p>
+            <div class="sec-split">
+              <div
+                class="sec-split-media"
+              >
+                <img
+                  src="https://hblake316.github.io/hidden-architects-react-typescript/images/geoffrey-hodson.jpg"
+                  alt="Geoffrey Hodson"
+                  class="slide-img-portrait"
+                />
+              </div>
+              <div
+                class="sec-body sec-split-body"
+              >
+                <h3>Geoffrey Hodson</h3>
+                <p>
+                  GEOFFREY HODSON was
+                  born and educated in
+                  England. During the
+                  First World War he
+                  served with
+                  distinction in the
+                  British Army and
+                  afterwards became
+                  actively interested in
+                  Theosophical studies.
+                  He carried out occult
+                  research in
+                  collaboration with
+                  doctors, physicists,
+                  anthropologists and
+                  archeologists.
+                </p>
+                <p>
+                  For over 60 years Mr.
+                  Hodson lectured for
+                  the Theosophical
+                  Society, speaking in
+                  America, England,
+                  Europe, South Africa,
+                  India, New Zealand,
+                  Australia and the Far
+                  East. He was the
+                  author of about 40
+                  books, dealing with
+                  topics such as
+                  meditation, the
+                  spiritual life, health
+                  and disease, and the
+                  life and powers of the
+                  occultist.
+                </p>
+                <p>
+                  He carried out special
+                  and first-hand
+                  investigations of
+                  fairies and angelic
+                  evolution. Mr. Hodson
+                  was 4 times Director
+                  of Studies at the
+                  School of the Wisdom
+                  at the International
+                  Headquarters of the
+                  Theosophical Society,
+                  Adyar, Chennai.
+                </p>
+              </div>
+            </div>
           </div>
-          <div class="sec-split-body">
+        </div>
+
+        <!-- SLIDE 03: Jeffrey Mishlove -->
+        <div class="slide" id="s03">
+          <div class="section-slide">
+            <div class="sec-header">
+              <span class="sec-num"
+                >03 / 18</span
+              >
+              <h2 class="sec-title">
+                Jeffrey Mishlove
+              </h2>
+              <div
+                class="sec-rule"
+              ></div>
+            </div>
+            <div
+              class="sec-split sec-split--video"
+            >
+              <div
+                class="sec-split-media"
+              >
+                <div
+                  class="video-embed"
+                >
+                  <iframe
+                    src="https://www.youtube.com/embed/7WGssopZcig"
+                    title="Jeffrey Mishlove on Geoffrey Hodson"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+                <p class="video-label">
+                  New Thinking Allowed —
+                  approx. 15 minutes
+                </p>
+              </div>
+              <div
+                class="sec-body sec-split-body"
+              >
+                <h3>
+                  Jeffrey Mishlove
+                </h3>
+                <p>
+                  JEFFREY MISHLOVE is an
+                  American
+                  parapsychologist,
+                  author, and television
+                  host best known for
+                  his long-running
+                  interview series
+                  <em
+                    >Thinking
+                    Allowed</em
+                  >
+                  and its successor
+                  <em
+                    >New Thinking
+                    Allowed</em
+                  >, in which he
+                  explores
+                  consciousness, psychic
+                  phenomena, and human
+                  potential with leading
+                  researchers and
+                  thinkers.
+                </p>
+                <p>
+                  He holds a unique
+                  distinction as the
+                  only person to earn a
+                  doctoral degree in
+                  parapsychology from an
+                  accredited American
+                  university (UC
+                  Berkeley, 1980). He is
+                  widely respected in
+                  the field for bringing
+                  rigorous, open-minded
+                  inquiry to topics that
+                  mainstream academia
+                  often dismisses.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 04: What Are the Gods? -->
+        <div class="slide" id="s04">
+          <div class="section-slide">
+            <div class="sec-header">
+              <span class="sec-num"
+                >04 / 18</span
+              >
+              <h2 class="sec-title">
+                What Are the Gods?
+              </h2>
+              <div
+                class="sec-rule"
+              ></div>
+            </div>
             <div class="sec-body">
-              <p>In his 1969 book <a href="https://www.amazon.com/Passport-Magonia-Folklore-Flying-Saucers-ebook/dp/B00TU7V0XA?ref_=ast_author_mpb" target="_blank" rel="noopener noreferrer"><em>Passport to Magonia: From Folklore to Flying Saucers</em></a>, Jacques Vallee, a French computer scientist and ufologist, poses a theory that perhaps the alien encounters of today are the fairy and other folklore encounters of the past.</p>
-              <p>Hodson says the etheric form of Nature Spirits is governed by at least 3 influences: the archetype (the idea of every form), the element, and human habits — the dress and the popular thought concerning the appearance of fairy people of particular times and places.</p>
+              <h4>The Devic Kingdom</h4>
+              <ul class="sec-list">
+                <li>
+                  Hierarchical Orders of
+                  Intelligences distinct
+                  from humanity
+                </li>
+                <li>
+                  Made up of Lesser and
+                  Greater Gods
+                </li>
+                <li>
+                  Profoundly responsive
+                  to human thought and
+                  emotion
+                </li>
+                <li>
+                  Genderless but they do
+                  express polarities
+                </li>
+              </ul>
             </div>
-            <div class="sec-quote" style="font-style:italic;">
-              <em>Up the airy mountains, Down the rushy glen,<br/>
-              We daren't go a-hunting For fear of little men;<br/>
-              Wee folk, good folk, Trooping all together;<br/>
-              Green jacket, red cap, And white owl's feather!</em>
-              <p style="margin-top:0.85rem;">
-              <em>Down along the rocky shore Some make their home,<br/>
-              They live on crispy pancakes Of yellow tide foam;<br/>
-              Some in the reeds Of the black mountain lake,<br/>
-              With frogs for their watch-dogs, All night awake.</em>
+            <img
+              src="https://hblake316.github.io/hidden-architects-react-typescript/images/plate-dee04121-fa1a-4dd7-ad9a-bbd545dd7990.png"
+              alt="Plate 18 - A God of the Southern Pacific"
+              class="slide-img"
+            />
+            <div class="panel-caption">
+              PLATE 18 — A GOD OF THE
+              SOUTHERN PACIFIC
+            </div>
+            <div class="sec-quote">
+              "The unusual, pointed,
+              oval shape produced by the
+              flowing streams of its
+              auric forces was clearly
+              discernible. As the
+              picture shows, great
+              currents of power descend
+              upon this sea God, are
+              compressed within its aura
+              and then released into the
+              ocean beneath. This being
+              is subordinate to a still
+              greater God, responsible
+              for the whole Pacific
+              Ocean."
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 05: The Lesser Gods -->
+        <div class="slide" id="s05">
+          <div class="section-slide">
+            <div class="sec-header">
+              <span class="sec-num"
+                >05 / 18</span
+              >
+              <h2 class="sec-title">
+                The Lesser Gods
+              </h2>
+              <div
+                class="sec-rule"
+              ></div>
+            </div>
+            <div class="sec-body">
+              <p>
+                The Lesser Gods are the
+                Elementals, the Nature
+                Spirits, most closely
+                associated with the four
+                classical elements. They
+                are the builders, the
+                unseen workforce of the
+                natural world —
+                constructing the forms
+                of minerals, plants,
+                animals, and weather;
+                directing the growth of
+                roots and crystals;
+                guiding the movement of
+                water and flame.
               </p>
-              <p style="margin-top:0.6rem; font-size:0.8rem; color:var(--text-muted); font-style:normal;">— William Allingham, <em>The Fairies</em>, 1850</p>
+              <p>
+                Pleasure is gained by
+                Nature Spirits in
+                moving, dancing, and
+                flying along the lines
+                of force within the
+                fields of ether. Their
+                life is one of
+                thought-free,
+                spontaneous play with
+                the currents of creative
+                energy.
+              </p>
+              <p>
+                <em
+                  >Reference:
+                  <a
+                    href="https://www.amazon.com/Fairies-Work-Play-Quest-Book/dp/0835605531"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Fairies at Work and
+                    at Play by Geoffrey
+                    Hodson, 1925</a
+                  ></em
+                >
+              </p>
+            </div>
+
+            <!-- Elemental Carousel -->
+            <div
+              class="carousel-wrap"
+              id="elem-carousel"
+            >
+              <div
+                class="carousel-viewport"
+              >
+                <div
+                  class="carousel-track-inner"
+                  id="elem-track"
+                >
+                  <div
+                    class="carousel-item"
+                  >
+                    <div
+                      class="carousel-item-text"
+                    >
+                      <span
+                        class="element-tag"
+                        >Air</span
+                      >
+                      <h4>
+                        Sylphs and
+                        Fairies
+                      </h4>
+                      <p
+                        class="sec-body"
+                      >
+                        The elementals
+                        of air — swift,
+                        light, and
+                        mercurial.
+                        Associated with
+                        wind, breath,
+                        thought, and the
+                        upper
+                        atmosphere.
+                        Their forms
+                        often suggest
+                        feathers, wings,
+                        or streaming
+                        ribbons of
+                        light.
+                      </p>
+                    </div>
+                    <img
+                      src="https://hblake316.github.io/hidden-architects-react-typescript/images/plate-f532d61e-3881-4af1-ba7e-a3a0762fbbda.png"
+                      alt="Sylph"
+                    />
+                    <div
+                      class="panel-caption"
+                    >
+                      PLATE 2
+                    </div>
+                  </div>
+
+                  <div
+                    class="carousel-item"
+                  >
+                    <div
+                      class="carousel-item-text"
+                    >
+                      <span
+                        class="element-tag"
+                        >Fire</span
+                      >
+                      <h4>
+                        Salamanders
+                      </h4>
+                      <p
+                        class="sec-body"
+                      >
+                        The elementals
+                        of fire —
+                        intense, rapid,
+                        and
+                        transformative.
+                        Salamanders are
+                        the hidden life
+                        of flame, living
+                        within and
+                        directing the
+                        energies of heat
+                        and combustion.
+                      </p>
+                    </div>
+                    <img
+                      src="https://hblake316.github.io/hidden-architects-react-typescript/images/plate-8ec1bfe5-2e13-41c9-853f-bc8cbb52ac15.png"
+                      alt="Salamander"
+                    />
+                    <div
+                      class="panel-caption"
+                    >
+                      PLATE 3
+                    </div>
+                  </div>
+
+                  <div
+                    class="carousel-item"
+                  >
+                    <div
+                      class="carousel-item-text"
+                    >
+                      <span
+                        class="element-tag"
+                        >Water</span
+                      >
+                      <h4>
+                        Undines and
+                        Water Sprites
+                      </h4>
+                      <p
+                        class="sec-body"
+                      >
+                        The elementals
+                        of water —
+                        fluid,
+                        reflective, and
+                        emotionally
+                        attuned. They
+                        work within
+                        rivers, lakes,
+                        seas, and rain,
+                        and may appear
+                        as shimmering,
+                        translucent
+                        forms.
+                      </p>
+                    </div>
+                    <img
+                      src="https://hblake316.github.io/hidden-architects-react-typescript/images/plate-5e0e3a9d-c8e8-4cb6-9f23-0637fe2d6110.png"
+                      alt="Undine"
+                    />
+                    <div
+                      class="panel-caption"
+                    >
+                      PLATE 4
+                    </div>
+                  </div>
+
+                  <div
+                    class="carousel-item"
+                  >
+                    <div
+                      class="carousel-item-text"
+                    >
+                      <span
+                        class="element-tag"
+                        >Earth</span
+                      >
+                      <h4>
+                        Gnomes and Earth
+                        Spirits
+                      </h4>
+                      <p
+                        class="sec-body"
+                      >
+                        The elementals
+                        of earth —
+                        dense, slow, and
+                        enormously
+                        patient. They
+                        work within soil
+                        and stone,
+                        directing the
+                        crystallization
+                        of minerals and
+                        the growth of
+                        roots deep
+                        underground.
+                      </p>
+                    </div>
+                    <img
+                      src="https://hblake316.github.io/hidden-architects-react-typescript/images/earth-gnome.jpg"
+                      alt="Earth Gnome"
+                    />
+                    <div
+                      class="panel-caption"
+                    >
+                      EARTH GNOME
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="carousel-controls"
+              >
+                <button
+                  class="car-btn"
+                  id="elem-prev"
+                >
+                  ◀
+                </button>
+                <div
+                  class="car-dots"
+                  id="elem-dots"
+                >
+                  <div
+                    class="car-dot active"
+                    data-idx="0"
+                  ></div>
+                  <div
+                    class="car-dot"
+                    data-idx="1"
+                  ></div>
+                  <div
+                    class="car-dot"
+                    data-idx="2"
+                  ></div>
+                  <div
+                    class="car-dot"
+                    data-idx="3"
+                  ></div>
+                </div>
+                <button
+                  class="car-btn"
+                  id="elem-next"
+                >
+                  ▶
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 06: Fairy Pancakes -->
+        <div class="slide" id="s06">
+          <div class="section-slide">
+            <div class="sec-header">
+              <span class="sec-num"
+                >06 / 18</span
+              >
+              <h2 class="sec-title">
+                Fairy Pancakes
+              </h2>
+              <div
+                class="sec-rule"
+              ></div>
+            </div>
+            <div
+              class="sec-split sec-split--video"
+            >
+              <div
+                class="sec-split-media"
+              >
+                <div
+                  class="video-embed"
+                >
+                  <iframe
+                    src="https://www.youtube.com/embed/5L1p4uXcJKo?si=CmnPh4tXjP4dmB_d"
+                    title="Fairy Pancakes"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+                <p class="video-label">
+                  Fairy Pancakes
+                </p>
+              </div>
+              <div
+                class="sec-split-body"
+              >
+                <div class="sec-body">
+                  <p>
+                    In his 1969 book
+                    <a
+                      href="https://www.amazon.com/Passport-Magonia-Folklore-Flying-Saucers-ebook/dp/B00TU7V0XA?ref_=ast_author_mpb"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      ><em
+                        >Passport to
+                        Magonia: From
+                        Folklore to
+                        Flying
+                        Saucers</em
+                      ></a
+                    >, Jacques Vallee, a
+                    French computer
+                    scientist and
+                    ufologist, poses a
+                    theory that perhaps
+                    the alien encounters
+                    of today are the
+                    fairy and other
+                    folklore encounters
+                    of the past.
+                  </p>
+                  <p>
+                    Hodson says the
+                    etheric form of
+                    Nature Spirits is
+                    governed by at least
+                    3 influences: the
+                    archetype (the idea
+                    of every form), the
+                    element, and human
+                    habits — the dress
+                    and the popular
+                    thought concerning
+                    the appearance of
+                    fairy people of
+                    particular times and
+                    places.
+                  </p>
+                </div>
+                <div
+                  class="sec-quote"
+                  style="
+                    font-style: italic;
+                  "
+                >
+                  <em
+                    >Up the airy
+                    mountains,<br />Down
+                    the rushy glen,<br />
+                    We daren't go
+                    a-hunting <br />For
+                    fear of little
+                    men;<br />
+                    Wee folk, good folk,
+                    <br />Trooping all
+                    together;<br />
+                    Green jacket, red
+                    cap, <br />And white
+                    owl's feather!</em
+                  >
+                  <p
+                    style="
+                      margin-top: 0.85rem;
+                    "
+                  >
+                    <em
+                      >Down along the
+                      rocky shore
+                      <br />Some make
+                      their home,<br />
+                      They live on
+                      crispy pancakes
+                      <br />Of yellow
+                      tide foam;<br />
+                      Some in the reeds
+                      <br />Of the black
+                      mountain lake,<br />
+                      With frogs for
+                      their watch-dogs,
+                      <br />All night
+                      awake.</em
+                    >
+                  </p>
+                  <p
+                    style="
+                      margin-top: 0.6rem;
+                      font-size: 0.8rem;
+                      color: var(
+                        --text-muted
+                      );
+                      font-style: normal;
+                    "
+                  >
+                    — William Allingham,
+                    <em>The Fairies</em
+                    >, 1850
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 07: The Mineral Kingdom -->
+        <div class="slide" id="s07">
+          <div class="section-slide">
+            <div class="sec-header">
+              <span class="sec-num"
+                >07 / 18</span
+              >
+              <h2 class="sec-title">
+                The Mineral Kingdom
+              </h2>
+              <div
+                class="sec-rule"
+              ></div>
+            </div>
+            <p class="evo-plan">
+              <em
+                >EVOLUTIONARY PLAN:<br />Consciousness:
+                Physical awareness<br />Form:
+                Hardness and beauty</em
+              >
+            </p>
+            <div class="sec-body">
+              <h4>The Gods of Gold</h4>
+              <p>
+                There is a hierarchy of
+                Gods, the chord of whose
+                nature is identical with
+                that of gold. They may
+                be thought of as the
+                divine idea of gold
+                manifest as an Order of
+                living beings. Members
+                of this hierarchy are
+                drawn by vibratory
+                affinity into the
+                streams of gold force
+                which are constantly
+                descending from the
+                creative Source into the
+                physical world.
+              </p>
+              <p>
+                Their presence and
+                assistance intensify the
+                component frequencies
+                and thereby augment the
+                form-producing power of
+                the Word-force. Thus,
+                part of the function of
+                the Gods of gold is to
+                assist in the process of
+                the production of
+                physical substances and
+                forms.
+              </p>
+            </div>
+            <img
+              src="https://hblake316.github.io/hidden-architects-react-typescript/images/plate-18-gold-reef.jpg"
+              alt="A God of the Gold Reef"
+              class="slide-img"
+            />
+            <div class="panel-caption">
+              PLATE 18 — A GOD OF THE
+              GOLD REEF
+            </div>
+            <div class="sec-quote">
+              "The vertical extension
+              was 'immense, reaching
+              from some two hundred feet
+              in the air to at least the
+              same distance below the
+              surface of the veldt,
+              whilst the actual
+              gold-producing force
+              played on down to the
+              reef, in some cases six
+              thousand or more feet
+              below.'"
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 08: The Plant Kingdom -->
+        <div class="slide" id="s08">
+          <div class="section-slide">
+            <div class="sec-header">
+              <span class="sec-num"
+                >08 / 18</span
+              >
+              <h2 class="sec-title">
+                The Plant Kingdom
+              </h2>
+              <div
+                class="sec-rule"
+              ></div>
+            </div>
+            <p class="evo-plan">
+              <em
+                >EVOLUTIONARY PLAN:<br />Consciousness:
+                Sensitivity and the
+                capacity to feel<br />Form:
+                Beauty</em
+              >
+            </p>
+            <div class="sec-body">
+              <p>
+                A vibratory possibility
+                is in the heart of every
+                seed. The seasonal
+                awakening produces a
+                subtle equivalent to
+                "sound". This "sound" is
+                then "heard" and the
+                nature spirit builders
+                answer the call. Every
+                stem, shoot, leaf and
+                flower has its own note,
+                to which the appropriate
+                builder responds.
+              </p>
+            </div>
+
+            <!-- Plant Carousel -->
+            <div
+              class="carousel-wrap"
+              id="plant-carousel"
+            >
+              <div
+                class="carousel-viewport"
+              >
+                <div
+                  class="carousel-track-inner"
+                  id="plant-track"
+                >
+                  <div
+                    class="carousel-item"
+                  >
+                    <div
+                      class="carousel-item-text"
+                    >
+                      <h4>
+                        A Lord of the
+                        Tree Ferns
+                      </h4>
+                      <p
+                        class="sec-body"
+                      >
+                        The tree fern
+                        God here
+                        portrayed was
+                        observed over
+                        the jungle in
+                        the mountain
+                        district of
+                        Ceylon. The
+                        patterns formed
+                        by the flow of
+                        the lines of
+                        force in the
+                        aura of this God
+                        reproduce within
+                        it certain of
+                        the tree fern
+                        forms.
+                      </p>
+                    </div>
+                    <img
+                      src="https://hblake316.github.io/hidden-architects-react-typescript/images/plate-d27b267e-00dc-4fd5-966c-5575eec1be7b.png"
+                      alt="A Lord of the Tree Ferns"
+                    />
+                    <div
+                      class="panel-caption"
+                    >
+                      PLATE 5
+                    </div>
+                  </div>
+
+                  <div
+                    class="carousel-item"
+                  >
+                    <div
+                      class="carousel-item-text"
+                    >
+                      <h4>
+                        A Lord of the
+                        Pines
+                      </h4>
+                      <p
+                        class="sec-body"
+                      >
+                        Observed in
+                        association with
+                        groups of stone
+                        pines in the
+                        Cape Peninsula,
+                        South Africa.
+                        The coloring and
+                        the lines of
+                        force in the
+                        inner aura
+                        suggest somewhat
+                        the needlelike
+                        foliage of the
+                        pine. The
+                        stature of this
+                        God is about 30
+                        feet.
+                      </p>
+                    </div>
+                    <img
+                      src="https://hblake316.github.io/hidden-architects-react-typescript/images/plate-f549d2b0-3b5d-495b-844c-f27f1efc1e99.png"
+                      alt="A Lord of the Pines"
+                    />
+                    <div
+                      class="panel-caption"
+                    >
+                      PLATE 6
+                    </div>
+                  </div>
+
+                  <div
+                    class="carousel-item"
+                  >
+                    <div
+                      class="carousel-item-text"
+                    >
+                      <h4>
+                        A Tree Nature
+                        Spirit
+                      </h4>
+                      <p
+                        class="sec-body"
+                      >
+                        This Waringan
+                        tree grew in a
+                        garden on the
+                        Island of Java.
+                        A delightful
+                        nature spirit
+                        was observed
+                        within its
+                        branches — a
+                        graceful form of
+                        light and color,
+                        tending the tree
+                        with evident joy
+                        and care.
+                      </p>
+                    </div>
+                    <img
+                      src="https://hblake316.github.io/hidden-architects-react-typescript/images/plate-c9bf3c59-9aac-4267-a63e-9178c65b26af.png"
+                      alt="A Tree Nature Spirit"
+                    />
+                    <div
+                      class="panel-caption"
+                    >
+                      PLATE 7
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="carousel-controls"
+              >
+                <button
+                  class="car-btn"
+                  id="plant-prev"
+                >
+                  ◀
+                </button>
+                <div
+                  class="car-dots"
+                  id="plant-dots"
+                >
+                  <div
+                    class="car-dot active"
+                    data-idx="0"
+                  ></div>
+                  <div
+                    class="car-dot"
+                    data-idx="1"
+                  ></div>
+                  <div
+                    class="car-dot"
+                    data-idx="2"
+                  ></div>
+                </div>
+                <button
+                  class="car-btn"
+                  id="plant-next"
+                >
+                  ▶
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 09: The Animal Kingdom -->
+        <div class="slide" id="s09">
+          <div class="section-slide">
+            <div class="sec-header">
+              <span class="sec-num"
+                >09 / 18</span
+              >
+              <h2 class="sec-title">
+                The Animal Kingdom
+              </h2>
+              <div
+                class="sec-rule"
+              ></div>
+            </div>
+            <p class="evo-plan">
+              <em
+                >EVOLUTIONARY PLAN:<br />Consciousness:
+                Self-consciousness of
+                feeling and thought<br />Form:
+                Beauty</em
+              >
+            </p>
+            <img
+              src="https://hblake316.github.io/hidden-architects-react-typescript/images/dog.jpg"
+              alt="Animal"
+              class="slide-img"
+            />
+            <div class="sec-body">
+              <ul class="sec-list">
+                <li>
+                  Actuated by a group
+                  consciousness shared
+                  with others of the
+                  same genus
+                </li>
+                <li>
+                  Are assigned group
+                  soul Angels
+                </li>
+                <li>
+                  The process of
+                  individualization
+                  occurs and a human
+                  soul is born when the
+                  Group Soul reaches its
+                  apotheosis
+                </li>
+                <li>
+                  Devas have evolved out
+                  of group consciousness
+                  into separate
+                  individuality
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 10: The Insect Kingdom -->
+        <div class="slide" id="s10">
+          <div class="section-slide">
+            <div class="sec-header">
+              <span class="sec-num"
+                >10 / 18</span
+              >
+              <h2 class="sec-title">
+                The Insect Kingdom
+              </h2>
+              <div
+                class="sec-rule"
+              ></div>
+            </div>
+            <div class="img-grid">
+              <div
+                class="img-grid-item"
+              >
+                <img
+                  src="https://hblake316.github.io/hidden-architects-react-typescript/images/mantis.jpg"
+                  alt="Mantis"
+                />
+                <div
+                  class="panel-caption"
+                >
+                  Mantis
+                </div>
+              </div>
+              <div
+                class="img-grid-item"
+              >
+                <img
+                  src="https://hblake316.github.io/hidden-architects-react-typescript/images/grasshopper.jpg"
+                  alt="Grasshopper"
+                />
+                <div
+                  class="panel-caption"
+                >
+                  Grasshopper
+                </div>
+              </div>
+              <div
+                class="img-grid-item"
+              >
+                <img
+                  src="https://hblake316.github.io/hidden-architects-react-typescript/images/ladybug.jpg"
+                  alt="Ladybug"
+                />
+                <div
+                  class="panel-caption"
+                >
+                  Ladybug
+                </div>
+              </div>
+            </div>
+            <div class="sec-body">
+              <p>
+                An Angelic Order exists
+                which has evolved
+                through the
+                insect-branch of Nature.
+                Just as Monads
+                manifested through other
+                facets of divine
+                ideation are guarded and
+                aided by their
+                evolutionary seniors, so
+                are those who, when
+                their Rays first touch
+                the physical world, find
+                their embodiment as
+                thousands of tiny
+                insects.
+              </p>
+              <p>
+                They pass their physical
+                existence and achieve
+                all that is desired of
+                them by passage through
+                that kingdom as
+                butterflies, bees,
+                beetles, ants or other
+                leading examples of the
+                insect Ray types — and
+                pass on to the
+                superphysical worlds
+                through which, first as
+                nature spirits and later
+                as rupa and arupa devas,
+                they ascend to
+                Archangelic heights and
+                beyond.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 11: The Greater Gods -->
+        <div class="slide" id="s11">
+          <div class="section-slide">
+            <div class="sec-header">
+              <span class="sec-num"
+                >11 / 18</span
+              >
+              <h2 class="sec-title">
+                The Greater Gods
+              </h2>
+              <div
+                class="sec-rule"
+              ></div>
+            </div>
+            <img
+              src="https://hblake316.github.io/hidden-architects-react-typescript/images/plate-f43ed6e2-a731-4674-a8ed-8a06f4b7ea97.png"
+              alt="Plate 20"
+              class="slide-img"
+            />
+            <div class="panel-caption">
+              PLATE 20
+            </div>
+            <div class="sec-quote">
+              "True music is a
+              temporary, physical
+              expression of the sound of
+              the ever-uttered 'Word'.
+              Throughout creative Day,
+              the Great Breath is
+              breathed forth as music
+              and received back as
+              music."
+            </div>
+            <div class="sec-body">
+              <p>
+                The Greater Gods are the
+                architects — the
+                Archangels, Devas,
+                Angels, and Sephiroth.
+                In the present
+                Mahamanvantara their
+                will does not become
+                markedly differentiated
+                from the One Will. The
+                human sense of separated
+                personality is almost
+                entirely absent in them.
+              </p>
+              <p>
+                Their path of evolution
+                does not deeply
+                penetrate the physical
+                world and leads from
+                instinctive to
+                self-conscious
+                co-operation with the
+                One Will.
+              </p>
+              <h4
+                style="
+                  margin-top: 0.85rem;
+                "
+              >
+                Their Active Role in
+                Human Life
+              </h4>
+              <p>
+                Theosophical teaching
+                holds that every human
+                being has a guardian
+                angel — a deva whose
+                specific function is to
+                accompany that soul
+                through its
+                incarnations, holding
+                the pattern of its
+                higher self and
+                providing an invisible
+                source of protection,
+                inspiration, and
+                guidance.
+              </p>
+              <p>
+                This is not metaphor. It
+                is a structural feature
+                of human existence that
+                has been attested across
+                virtually every
+                spiritual tradition in
+                the world.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 12: The Mountain Gods -->
+        <div class="slide" id="s12">
+          <div class="section-slide">
+            <div class="sec-header">
+              <span class="sec-num"
+                >12 / 18</span
+              >
+              <h2 class="sec-title">
+                The Mountain Gods
+              </h2>
+              <div
+                class="sec-rule"
+              ></div>
+            </div>
+            <img
+              src="https://hblake316.github.io/hidden-architects-react-typescript/images/plate-concentric-deva.png"
+              alt="A God of a Snowclad Range"
+              class="slide-img"
+            />
+            <div class="panel-caption">
+              PLATE 15 — THE GOD OF A
+              SNOWCLAD RANGE, Sierra
+              Nevadas, California
+            </div>
+            <div class="sec-body">
+              <p
+                style="
+                  font-size: 0.8rem;
+                  color: var(
+                    --text-muted
+                  );
+                  font-style: italic;
+                  text-align: center;
+                "
+              >
+                "In order to show the
+                colouring and the
+                dazzling whiteness of
+                the outer sphere, a
+                cross section has been
+                taken through the centre
+                of the aura. The devic
+                form is approximately
+                fifty feet tall."
+              </p>
+            </div>
+            <div class="sec-body">
+              <h4>
+                Messages from the
+                Heights
+              </h4>
+            </div>
+            <div class="sec-quote">
+              "The globe is a living
+              being with incarnate
+              power, life and
+              consciousness. The Earth
+              breathes. Its heart beats.
+              It is the body of a God
+              who is the Spirit of the
+              Earth."
+            </div>
+            <div class="sec-quote">
+              "The heart of Nature, save
+              for its rhythmic pulse,
+              abides in silence. The
+              devotee at Nature's shrine
+              must approach her altar
+              reverently and with quiet
+              mind if he would find her
+              beating heart and know the
+              power within the form."
+            </div>
+            <div class="sec-quote">
+              "The wheel revolves. The
+              golden days return. Nature
+              calls again to man who, as
+              he hears, endeavours to
+              respond."
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 13: Angelic Hierarchies -->
+        <div class="slide" id="s13">
+          <div class="section-slide">
+            <div class="sec-header">
+              <span class="sec-num"
+                >13 / 18</span
+              >
+              <h2 class="sec-title">
+                Angelic Hierarchies
+              </h2>
+              <div
+                class="sec-rule"
+              ></div>
+            </div>
+            <img
+              src="https://hblake316.github.io/hidden-architects-react-typescript/images/plate-ce15032a-034e-4721-a0a4-c4e1452be609.png"
+              alt="Plate 27 - A Kundalini Devi"
+              class="slide-img"
+            />
+            <div class="panel-caption">
+              PLATE 27 — A KUNDALINI
+              DEVI
+            </div>
+            <div class="sec-body">
+              <p>
+                The totality of Angelic
+                Hosts and Nature Spirits
+                of a solar system is a
+                manifestation of one
+                Solar Archangel of
+                unimaginable splendor
+                within whom all angels
+                live. From this center
+                all have emanated, and
+                into it all will return.
+              </p>
+              <p>
+                The One Supreme Being
+                becomes expressed in 3
+                aspects: masculine,
+                androgyne, and feminine.
+                These 3 emanations in
+                turn unite every
+                possible combination to
+                produce a 7-fold
+                self-expression of the
+                Divine Monad — the 7
+                highest Archangels.
+              </p>
+            </div>
+            <div class="info-card">
+              <h4>
+                Among the Many
+                Archangels and Angels
+              </h4>
+              <ul class="sec-list">
+                <li>
+                  Planetary Archangels
+                </li>
+                <li>National Angels</li>
+                <li>
+                  Angel builders of
+                  human form
+                </li>
+                <li>
+                  Angels of Religion
+                </li>
+                <li>
+                  Group soul Angels for
+                  the mineral, plant,
+                  and animal kingdoms
+                </li>
+              </ul>
+            </div>
+            <div class="sec-body">
+              <h4>
+                Planetary Archangels
+              </h4>
+              <p>
+                The Archangels of the
+                planets, each of whom
+                maintains an 'Embassy'
+                on Earth, have been
+                referred to as Heavenly
+                Snails who move with
+                apparent slowness on
+                their orbits around the
+                sun, each carrying their
+                physical planet on their
+                back like a house or
+                shell.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 14: Angelic Healing -->
+        <div class="slide" id="s14">
+          <div class="section-slide">
+            <div class="sec-header">
+              <span class="sec-num"
+                >14 / 18</span
+              >
+              <h2 class="sec-title">
+                Angelic Healing
+              </h2>
+              <div
+                class="sec-rule"
+              ></div>
+            </div>
+            <img
+              src="https://hblake316.github.io/hidden-architects-react-typescript/images/plate-c19c5645-0051-40ba-afe2-c423e223135f.png"
+              alt="Plate 24 - Angelic Healing"
+              class="slide-img"
+            />
+            <div class="panel-caption">
+              PLATE 24
+            </div>
+            <div class="sec-body">
+              <p>
+                These pictures portray
+                three different types of
+                angels engaged in their
+                healing ministry. The
+                general method is first
+                to direct streams of
+                purifying energy into
+                and through the aura of
+                the sufferer, in order
+                to disperse congestions
+                in the etheric and
+                emotional bodies.
+              </p>
+              <p>
+                They then re-attune the
+                chord of "Word" of the
+                individual, usually
+                dissonant in the psyche
+                during ill-health, and
+                try to restore the
+                harmonious and rhythmic
+                flow of the inner
+                Life-forces throughout
+                the mental, emotional
+                and physical nature.
+              </p>
+              <p>
+                Finally, they invoke
+                divine healing power
+                from its Source into the
+                patients.
+              </p>
+            </div>
+            <div class="sec-body">
+              <p>
+                Such ministrations are
+                far more effective when
+                man consciously invokes
+                and cooperates with the
+                healing angels.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 15: The World Mother -->
+        <div class="slide" id="s15">
+          <div class="section-slide">
+            <div class="sec-header">
+              <span class="sec-num"
+                >15 / 18</span
+              >
+              <h2 class="sec-title">
+                The World Mother
+              </h2>
+              <div
+                class="sec-rule"
+              ></div>
+            </div>
+            <img
+              src="https://hblake316.github.io/hidden-architects-react-typescript/images/plate-b82b8404-2a11-40d9-ba1a-e098e7fd2e20.png"
+              alt="Plate 28 - The Miracle of Birth"
+              class="slide-img"
+            />
+            <div class="panel-caption">
+              PLATE 28 — THE MIRACLE OF
+              BIRTH
+            </div>
+            <div class="sec-body">
+              <p>
+                During the descent into
+                incarnation of each life
+                cycle, angels are
+                present and assist in
+                the dual process of the
+                construction of the new
+                bodies — mental,
+                emotional, etheric, and
+                physical — and the
+                induction into them of
+                the reincarnating ego.
+              </p>
+              <p>
+                Universal substance, or
+                <em>prakriti</em>, is
+                the womb wherein all
+                worlds gestate, from
+                which all are born and
+                to which all return. The
+                true World Mother is
+                this primary substance
+                of a universe when first
+                differentiated from the
+                root of matter or
+                <em>mulaprakriti</em>;
+                therein reside the seeds
+                of all living things and
+                the powers of
+                conservation and
+                reproduction.
+              </p>
+              <p>
+                The planetary World
+                Mother is beyond all
+                limitation of form. No
+                picture can truly
+                represent Her.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 16: Rediscovering the Hidden Kingdoms -->
+        <div class="slide" id="s16">
+          <div class="section-slide">
+            <div class="sec-header">
+              <span class="sec-num"
+                >16 / 18</span
+              >
+              <h2 class="sec-title">
+                Rediscovering the Hidden
+                Kingdoms
+              </h2>
+              <div
+                class="sec-rule"
+              ></div>
+            </div>
+            <div class="sec-body">
+              <p>
+                Annie Besant spoke of
+                the coming Aquarian age
+                as a period in which the
+                relationship between the
+                human and deva kingdoms
+                would be consciously
+                restored — not as the
+                fitful, uncertain
+                perceptions of gifted
+                individuals, but as a
+                recognized reality
+                integrated into the
+                fabric of civilization.
+              </p>
+            </div>
+            <div class="sec-quote">
+              "The Aquarian age will see
+              a new relationship between
+              humanity and the deva
+              kingdom — one of conscious
+              cooperation, mutual
+              recognition, and shared
+              service to the evolving
+              life of the planet."
+            </div>
+            <div class="sec-body">
+              <p>
+                These kingdoms have not
+                gone away. They have
+                been present throughout
+                every epoch of human
+                history, working
+                ceaselessly in the
+                natural world,
+                responsive to human
+                attention and intention.
+                What has changed is our
+                willingness — or ability
+                — to perceive them.
+              </p>
+            </div>
+            <div class="info-card">
+              <h4>How to Begin</h4>
+              <ul class="sec-list">
+                <li>
+                  <strong
+                    style="
+                      color: var(
+                        --gold
+                      );
+                    "
+                    >🌿 Spend Time in
+                    Nature</strong
+                  >
+                  — The nature spirits
+                  are most perceptible
+                  to a still, attentive,
+                  and genuinely open
+                  consciousness. Sit by
+                  water. Walk in woods.
+                </li>
+                <li>
+                  <strong
+                    style="
+                      color: var(
+                        --gold
+                      );
+                    "
+                    >✦ Open Heart and
+                    Mind</strong
+                  >
+                  — Approach these
+                  kingdoms with genuine
+                  openness, without
+                  demand, and with the
+                  expectation of
+                  encountering something
+                  real.
+                </li>
+                <li>
+                  <strong
+                    style="
+                      color: var(
+                        --gold
+                      );
+                    "
+                    >✧ Send Beauty
+                    Outward</strong
+                  >
+                  — A genuinely loving,
+                  generous thought sent
+                  toward the nature of a
+                  place or the being of
+                  a tree is not wasted.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 17: L'Envoi -->
+        <div class="slide" id="s17">
+          <div class="section-slide">
+            <div class="sec-header">
+              <span class="sec-num"
+                >17 / 18</span
+              >
+              <h2 class="sec-title">
+                L'Envoi
+              </h2>
+              <div
+                class="sec-rule"
+              ></div>
+            </div>
+            <img
+              src="https://hblake316.github.io/hidden-architects-react-typescript/images/plate-f06ddd06-f3f6-4125-ba5c-847e7873dc65.png"
+              alt="Plate 9 - A Mountain God"
+              class="slide-img"
+            />
+            <div class="panel-caption">
+              PLATE 9 — A MOUNTAIN GOD
+            </div>
+            <div
+              class="sec-quote"
+              style="
+                font-size: 1.05rem;
+                line-height: 1.9;
+              "
+            >
+              <p>
+                "The Gods await the
+                conscious re-union of
+                the mind of man with the
+                Universal Mind. Humanity
+                awakens slowly.
+                Matter-blinded through
+                centuries, few men as
+                yet perceive the mind
+                within the substance,
+                the life within the
+                form.
+              </p>
+              <p
+                style="
+                  margin-top: 0.75rem;
+                "
+              >
+                In search of power and
+                wealth, men have
+                traversed the whole
+                earth, have penetrated
+                the wilds, scaled the
+                peaks and conquered the
+                polar wastes. Let them
+                now seek within the
+                form, scale the heights
+                of their own
+                consciousness, penetrate
+                its depth, in search of
+                that inner Power and
+                Life by which alone they
+                may become strong in
+                will and spiritually
+                enriched.
+              </p>
+              <p
+                style="
+                  margin-top: 0.75rem;
+                "
+              >
+                He who thus throws open
+                his life and mind to the
+                Universal Life and Mind
+                indwelling in all things
+                will enter into union
+                therewith and to him the
+                Gods will appear."
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 18: References -->
+        <div class="slide" id="s18">
+          <div class="section-slide">
+            <div class="sec-header">
+              <span class="sec-num"
+                >18 / 18</span
+              >
+              <h2 class="sec-title">
+                References
+              </h2>
+              <div
+                class="sec-rule"
+              ></div>
+            </div>
+            <div class="ref-list">
+              <div class="ref-item">
+                <span class="ref-type"
+                  >Text</span
+                >
+                <a
+                  href="https://www.theosophy.world/sites/default/files/ebooks/The%20Kingdom%20of%20the%20Gods%20-%20Geoffrey%20Hodson.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >The Kingdom of the
+                  Gods — Geoffrey Hodson
+                  (Full PDF)</a
+                >
+              </div>
+              <div class="ref-item">
+                <span class="ref-type"
+                  >Video</span
+                >
+                <a
+                  href="https://www.youtube.com/@NewThinkingAllowed"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >New Thinking Allowed
+                  channel</a
+                >
+              </div>
+              <div class="ref-item">
+                <span class="ref-type"
+                  >Video</span
+                >
+                <a
+                  href="https://www.youtube.com/embed/7WGssopZcig"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Jeffrey Mishlove on
+                  Geoffrey Hodson</a
+                >
+              </div>
+              <div class="ref-item">
+                <span class="ref-type"
+                  >Book</span
+                >
+                <a
+                  href="https://www.amazon.com/Fairies-Work-Play-Quest-Book/dp/0835605531"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Fairies at Work and
+                  at Play — Geoffrey
+                  Hodson</a
+                >
+              </div>
+              <div class="ref-item">
+                <span class="ref-type"
+                  >Book</span
+                >
+                <a
+                  href="https://www.amazon.com/Passport-Magonia-Folklore-Flying-Saucers-ebook/dp/B00TU7V0XA?ref_=ast_author_mpb"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Passport to Magonia:
+                  From Folklore to
+                  Flying Saucers —
+                  Jacques Vallee</a
+                >
+              </div>
+              <div class="ref-item">
+                <span class="ref-type"
+                  >Video</span
+                >
+                <a
+                  href="https://www.youtube.com/embed/5L1p4uXcJKo?si=CmnPh4tXjP4dmB_d"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Fairy Pancakes</a
+                >
+              </div>
+              <div class="ref-item">
+                <span class="ref-type"
+                  >Video</span
+                >
+                <a
+                  href="https://www.youtube.com/watch?v=d_RGEpJSr6s"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Rupert Sheldrake's
+                  Morphic Resonance</a
+                >
+              </div>
+              <div class="ref-item">
+                <span class="ref-type"
+                  >Article</span
+                >
+                <a
+                  href="https://www.newdawnmagazine.com/articles/newscience-consciousness/morphic-resonance-morphic-fields-collective-memory-the-habits-of-nature"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Morphic Resonance
+                  &amp; Morphic Fields:
+                  Collective Memory
+                  &amp; the Habits of
+                  Nature</a
+                >
+              </div>
+              <div class="ref-item">
+                <span class="ref-type"
+                  >Article</span
+                >
+                <a
+                  href="https://www.chemistryworld.com/features/the-curious-case-of-disappearing-polymorphs/4023257.article"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >The Curious Case of
+                  Disappearing
+                  Polymorphs</a
+                >
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+      <!-- /slide-area -->
 
-    <!-- SLIDE 07: The Mineral Kingdom -->
-    <div class="slide" id="s07">
-      <div class="section-slide">
-        <div class="sec-header">
-          <span class="sec-num">07 / 18</span>
-          <h2 class="sec-title">The Mineral Kingdom</h2>
-          <div class="sec-rule"></div>
+      <!-- BOTTOM NAV -->
+      <nav id="bottom-nav">
+        <button
+          class="nav-btn"
+          id="prev-btn"
+          disabled
+        >
+          ◀ Prev
+        </button>
+        <span id="slide-counter"
+          >01 / 18</span
+        >
+        <button
+          class="nav-btn"
+          id="next-btn"
+        >
+          Next ▶
+        </button>
+      </nav>
+    </div>
+    <!-- /app -->
+
+    <!-- DRAWER OVERLAY -->
+    <div id="drawer-overlay"></div>
+
+    <!-- SIDE DRAWER -->
+    <nav
+      id="drawer"
+      aria-label="Presentation navigation"
+    >
+      <div id="drawer-header">
+        <span id="drawer-sigil">✦</span>
+        <div id="drawer-title">
+          The Kingdom<br />of the
+          Gods:<br />Invisible Realms
         </div>
-        <p class="evo-plan"><em>EVOLUTIONARY PLAN:<br/>Consciousness: Physical awareness<br/>Form: Hardness and beauty</em></p>
-        <div class="sec-body">
-          <h4>The Gods of Gold</h4>
-          <p>There is a hierarchy of Gods, the chord of whose nature is identical with that of gold. They may be thought of as the divine idea of gold manifest as an Order of living beings. Members of this hierarchy are drawn by vibratory affinity into the streams of gold force which are constantly descending from the creative Source into the physical world.</p>
-          <p>Their presence and assistance intensify the component frequencies and thereby augment the form-producing power of the Word-force. Thus, part of the function of the Gods of gold is to assist in the process of the production of physical substances and forms.</p>
-        </div>
-        <img src="https://hblake316.github.io/hidden-architects-react-typescript/images/plate-18-gold-reef.jpg"
-             alt="A God of the Gold Reef" class="slide-img" />
-        <div class="panel-caption">PLATE 18 — A GOD OF THE GOLD REEF</div>
-        <div class="sec-quote">
-          "The vertical extension was 'immense, reaching from some two hundred feet in the air to at least the same distance below the surface of the veldt, whilst the actual gold-producing force played on down to the reef, in some cases six thousand or more feet below.'"
-        </div>
+        <button
+          id="drawer-close"
+          aria-label="Close navigation"
+        >
+          ✕
+        </button>
       </div>
-    </div>
-
-    <!-- SLIDE 08: The Plant Kingdom -->
-    <div class="slide" id="s08">
-      <div class="section-slide">
-        <div class="sec-header">
-          <span class="sec-num">08 / 18</span>
-          <h2 class="sec-title">The Plant Kingdom</h2>
-          <div class="sec-rule"></div>
-        </div>
-        <p class="evo-plan"><em>EVOLUTIONARY PLAN:<br/>Consciousness: Sensitivity and the capacity to feel<br/>Form: Beauty</em></p>
-        <div class="sec-body">
-          <p>A vibratory possibility is in the heart of every seed. The seasonal awakening produces a subtle equivalent to "sound". This "sound" is then "heard" and the nature spirit builders answer the call. Every stem, shoot, leaf and flower has its own note, to which the appropriate builder responds.</p>
-        </div>
-
-        <!-- Plant Carousel -->
-        <div class="carousel-wrap" id="plant-carousel">
-          <div class="carousel-viewport">
-            <div class="carousel-track-inner" id="plant-track">
-
-              <div class="carousel-item">
-                <div class="carousel-item-text">
-                  <h4>A Lord of the Tree Ferns</h4>
-                  <p class="sec-body">The tree fern God here portrayed was observed over the jungle in the mountain district of Ceylon. The patterns formed by the flow of the lines of force in the aura of this God reproduce within it certain of the tree fern forms.</p>
-                </div>
-                <img src="https://hblake316.github.io/hidden-architects-react-typescript/images/plate-d27b267e-00dc-4fd5-966c-5575eec1be7b.png" alt="A Lord of the Tree Ferns" />
-                <div class="panel-caption">PLATE 5</div>
-              </div>
-
-              <div class="carousel-item">
-                <div class="carousel-item-text">
-                  <h4>A Lord of the Pines</h4>
-                  <p class="sec-body">Observed in association with groups of stone pines in the Cape Peninsula, South Africa. The coloring and the lines of force in the inner aura suggest somewhat the needlelike foliage of the pine. The stature of this God is about 30 feet.</p>
-                </div>
-                <img src="https://hblake316.github.io/hidden-architects-react-typescript/images/plate-f549d2b0-3b5d-495b-844c-f27f1efc1e99.png" alt="A Lord of the Pines" />
-                <div class="panel-caption">PLATE 6</div>
-              </div>
-
-              <div class="carousel-item">
-                <div class="carousel-item-text">
-                  <h4>A Tree Nature Spirit</h4>
-                  <p class="sec-body">This Waringan tree grew in a garden on the Island of Java. A delightful nature spirit was observed within its branches — a graceful form of light and color, tending the tree with evident joy and care.</p>
-                </div>
-                <img src="https://hblake316.github.io/hidden-architects-react-typescript/images/plate-c9bf3c59-9aac-4267-a63e-9178c65b26af.png" alt="A Tree Nature Spirit" />
-                <div class="panel-caption">PLATE 7</div>
-              </div>
-
-            </div>
-          </div>
-          <div class="carousel-controls">
-            <button class="car-btn" id="plant-prev">◀</button>
-            <div class="car-dots" id="plant-dots">
-              <div class="car-dot active" data-idx="0"></div>
-              <div class="car-dot" data-idx="1"></div>
-              <div class="car-dot" data-idx="2"></div>
-            </div>
-            <button class="car-btn" id="plant-next">▶</button>
-          </div>
-        </div>
+      <div id="drawer-nav">
+        <ul>
+          <li>
+            <a
+              href="#"
+              class="nav-link active"
+              data-slide="0"
+              ><span class="nav-num"
+                >01</span
+              >
+              The Kingdom of the Gods</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="nav-link"
+              data-slide="1"
+              ><span class="nav-num"
+                >02</span
+              >
+              Geoffrey Hodson</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="nav-link"
+              data-slide="2"
+              ><span class="nav-num"
+                >03</span
+              >
+              Jeffrey Mishlove</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="nav-link"
+              data-slide="3"
+              ><span class="nav-num"
+                >04</span
+              >
+              What Are the Gods?</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="nav-link"
+              data-slide="4"
+              ><span class="nav-num"
+                >05</span
+              >
+              The Lesser Gods</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="nav-link"
+              data-slide="5"
+              ><span class="nav-num"
+                >06</span
+              >
+              Fairy Pancakes</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="nav-link"
+              data-slide="6"
+              ><span class="nav-num"
+                >07</span
+              >
+              The Mineral Kingdom</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="nav-link"
+              data-slide="7"
+              ><span class="nav-num"
+                >08</span
+              >
+              The Plant Kingdom</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="nav-link"
+              data-slide="8"
+              ><span class="nav-num"
+                >09</span
+              >
+              The Animal Kingdom</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="nav-link"
+              data-slide="9"
+              ><span class="nav-num"
+                >10</span
+              >
+              The Insect Kingdom</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="nav-link"
+              data-slide="10"
+              ><span class="nav-num"
+                >11</span
+              >
+              The Greater Gods</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="nav-link"
+              data-slide="11"
+              ><span class="nav-num"
+                >12</span
+              >
+              The Mountain Gods</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="nav-link"
+              data-slide="12"
+              ><span class="nav-num"
+                >13</span
+              >
+              Angelic Hierarchies</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="nav-link"
+              data-slide="13"
+              ><span class="nav-num"
+                >14</span
+              >
+              Angelic Healing</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="nav-link"
+              data-slide="14"
+              ><span class="nav-num"
+                >15</span
+              >
+              The World Mother</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="nav-link"
+              data-slide="15"
+              ><span class="nav-num"
+                >16</span
+              >
+              Rediscovering the Hidden
+              Kingdoms</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="nav-link"
+              data-slide="16"
+              ><span class="nav-num"
+                >17</span
+              >
+              L'Envoi</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="nav-link"
+              data-slide="17"
+              ><span class="nav-num"
+                >18</span
+              >
+              References</a
+            >
+          </li>
+        </ul>
       </div>
-    </div>
+    </nav>
 
-    <!-- SLIDE 09: The Animal Kingdom -->
-    <div class="slide" id="s09">
-      <div class="section-slide">
-        <div class="sec-header">
-          <span class="sec-num">09 / 18</span>
-          <h2 class="sec-title">The Animal Kingdom</h2>
-          <div class="sec-rule"></div>
-        </div>
-        <p class="evo-plan"><em>EVOLUTIONARY PLAN:<br/>Consciousness: Self-consciousness of feeling and thought<br/>Form: Beauty</em></p>
-        <img src="https://hblake316.github.io/hidden-architects-react-typescript/images/dog.jpg"
-             alt="Animal" class="slide-img" />
-        <div class="sec-body">
-          <ul class="sec-list">
-            <li>Actuated by a group consciousness shared with others of the same genus</li>
-            <li>Are assigned group soul Angels</li>
-            <li>The process of individualization occurs and a human soul is born when the Group Soul reaches its apotheosis</li>
-            <li>Devas have evolved out of group consciousness into separate individuality</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+    <script>
+      // ============================================================
+      // STATE
+      // ============================================================
+      const slides = Array.from(
+        document.querySelectorAll(
+          '.slide'
+        )
+      )
+      const navLinks = Array.from(
+        document.querySelectorAll(
+          '.nav-link'
+        )
+      )
+      const total = slides.length
+      let current = 0
 
-    <!-- SLIDE 10: The Insect Kingdom -->
-    <div class="slide" id="s10">
-      <div class="section-slide">
-        <div class="sec-header">
-          <span class="sec-num">10 / 18</span>
-          <h2 class="sec-title">The Insect Kingdom</h2>
-          <div class="sec-rule"></div>
-        </div>
-        <div class="img-grid">
-          <div class="img-grid-item">
-            <img src="https://hblake316.github.io/hidden-architects-react-typescript/images/mantis.jpg" alt="Mantis" />
-            <div class="panel-caption">Mantis</div>
-          </div>
-          <div class="img-grid-item">
-            <img src="https://hblake316.github.io/hidden-architects-react-typescript/images/grasshopper.jpg" alt="Grasshopper" />
-            <div class="panel-caption">Grasshopper</div>
-          </div>
-          <div class="img-grid-item">
-            <img src="https://hblake316.github.io/hidden-architects-react-typescript/images/ladybug.jpg" alt="Ladybug" />
-            <div class="panel-caption">Ladybug</div>
-          </div>
-        </div>
-        <div class="sec-body">
-          <p>An Angelic Order exists which has evolved through the insect-branch of Nature. Just as Monads manifested through other facets of divine ideation are guarded and aided by their evolutionary seniors, so are those who, when their Rays first touch the physical world, find their embodiment as thousands of tiny insects.</p>
-          <p>They pass their physical existence and achieve all that is desired of them by passage through that kingdom as butterflies, bees, beetles, ants or other leading examples of the insect Ray types — and pass on to the superphysical worlds through which, first as nature spirits and later as rupa and arupa devas, they ascend to Archangelic heights and beyond.</p>
-        </div>
-      </div>
-    </div>
+      const pad = (n) =>
+        String(n + 1).padStart(2, '0')
+      const totalPad = String(
+        total
+      ).padStart(2, '0')
 
-    <!-- SLIDE 11: The Greater Gods -->
-    <div class="slide" id="s11">
-      <div class="section-slide">
-        <div class="sec-header">
-          <span class="sec-num">11 / 18</span>
-          <h2 class="sec-title">The Greater Gods</h2>
-          <div class="sec-rule"></div>
-        </div>
-        <img src="https://hblake316.github.io/hidden-architects-react-typescript/images/plate-f43ed6e2-a731-4674-a8ed-8a06f4b7ea97.png"
-             alt="Plate 20" class="slide-img" />
-        <div class="panel-caption">PLATE 20</div>
-        <div class="sec-body">
-          <p>The Greater Gods are the architects — the Archangels, Devas, Angels, and Sephiroth. In the present Mahamanvantara their will does not become markedly differentiated from the One Will. The human sense of separated personality is almost entirely absent in them.</p>
-          <p>Their path of evolution does not deeply penetrate the physical world and leads from instinctive to self-conscious co-operation with the One Will.</p>
-          <h4 style="margin-top:0.85rem;">Their Active Role in Human Life</h4>
-          <p>Theosophical teaching holds that every human being has a guardian angel — a deva whose specific function is to accompany that soul through its incarnations, holding the pattern of its higher self and providing an invisible source of protection, inspiration, and guidance.</p>
-          <p>This is not metaphor. It is a structural feature of human existence that has been attested across virtually every spiritual tradition in the world.</p>
-        </div>
-        <div class="sec-quote">
-          "True music is a temporary, physical expression of the sound of the ever-uttered 'Word'. Throughout creative Day, the Great Breath is breathed forth as music and received back as music."
-        </div>
-      </div>
-    </div>
+      function updateCounters() {
+        const label = `${pad(
+          current
+        )} / ${totalPad}`
+        document.getElementById(
+          'slide-counter'
+        ).textContent = label
+        document.getElementById(
+          'slide-counter-top'
+        ).textContent = label
+      }
 
-    <!-- SLIDE 12: The Mountain Gods -->
-    <div class="slide" id="s12">
-      <div class="section-slide">
-        <div class="sec-header">
-          <span class="sec-num">12 / 18</span>
-          <h2 class="sec-title">The Mountain Gods</h2>
-          <div class="sec-rule"></div>
-        </div>
-        <img src="https://hblake316.github.io/hidden-architects-react-typescript/images/plate-concentric-deva.png"
-             alt="A God of a Snowclad Range" class="slide-img" />
-        <div class="panel-caption">PLATE 15 — THE GOD OF A SNOWCLAD RANGE, Sierra Nevadas, California</div>
-        <div class="sec-body">
-          <p style="font-size:0.8rem; color:var(--text-muted); font-style:italic; text-align:center;">"In order to show the colouring and the dazzling whiteness of the outer sphere, a cross section has been taken through the centre of the aura. The devic form is approximately fifty feet tall."</p>
-        </div>
-        <div class="sec-body">
-          <h4>Messages from the Heights</h4>
-        </div>
-        <div class="sec-quote">"The globe is a living being with incarnate power, life and consciousness. The Earth breathes. Its heart beats. It is the body of a God who is the Spirit of the Earth."</div>
-        <div class="sec-quote">"The heart of Nature, save for its rhythmic pulse, abides in silence. The devotee at Nature's shrine must approach her altar reverently and with quiet mind if he would find her beating heart and know the power within the form."</div>
-        <div class="sec-quote">"The wheel revolves. The golden days return. Nature calls again to man who, as he hears, endeavours to respond."</div>
-      </div>
-    </div>
+      function goTo(index) {
+        if (index < 0 || index >= total)
+          return
+        slides[
+          current
+        ].classList.remove('active')
+        navLinks[
+          current
+        ].classList.remove('active')
+        current = index
+        slides[current].classList.add(
+          'active'
+        )
+        slides[current].scrollTop = 0
+        navLinks[current].classList.add(
+          'active'
+        )
+        document.getElementById(
+          'prev-btn'
+        ).disabled = current === 0
+        document.getElementById(
+          'next-btn'
+        ).disabled =
+          current === total - 1
+        updateCounters()
+      }
 
-    <!-- SLIDE 13: Angelic Hierarchies -->
-    <div class="slide" id="s13">
-      <div class="section-slide">
-        <div class="sec-header">
-          <span class="sec-num">13 / 18</span>
-          <h2 class="sec-title">Angelic Hierarchies</h2>
-          <div class="sec-rule"></div>
-        </div>
-        <img src="https://hblake316.github.io/hidden-architects-react-typescript/images/plate-ce15032a-034e-4721-a0a4-c4e1452be609.png"
-             alt="Plate 27 - A Kundalini Devi" class="slide-img" />
-        <div class="panel-caption">PLATE 27 — A KUNDALINI DEVI</div>
-        <div class="sec-body">
-          <p>The totality of Angelic Hosts and Nature Spirits of a solar system is a manifestation of one Solar Archangel of unimaginable splendor within whom all angels live. From this center all have emanated, and into it all will return.</p>
-          <p>The One Supreme Being becomes expressed in 3 aspects: masculine, androgyne, and feminine. These 3 emanations in turn unite every possible combination to produce a 7-fold self-expression of the Divine Monad — the 7 highest Archangels.</p>
-        </div>
-        <div class="info-card">
-          <h4>Among the Many Archangels and Angels</h4>
-          <ul class="sec-list">
-            <li>Planetary Archangels</li>
-            <li>National Angels</li>
-            <li>Angel builders of human form</li>
-            <li>Angels of Religion</li>
-            <li>Group soul Angels for the mineral, plant, and animal kingdoms</li>
-          </ul>
-        </div>
-        <div class="sec-body">
-          <h4>Planetary Archangels</h4>
-          <p>The Archangels of the planets, each of whom maintains an 'Embassy' on Earth, have been referred to as Heavenly Snails who move with apparent slowness on their orbits around the sun, each carrying their physical planet on their back like a house or shell.</p>
-        </div>
-      </div>
-    </div>
+      // ============================================================
+      // NAVIGATION BUTTONS
+      // ============================================================
+      document
+        .getElementById('prev-btn')
+        .addEventListener('click', () =>
+          goTo(current - 1)
+        )
+      document
+        .getElementById('next-btn')
+        .addEventListener('click', () =>
+          goTo(current + 1)
+        )
 
-    <!-- SLIDE 14: Angelic Healing -->
-    <div class="slide" id="s14">
-      <div class="section-slide">
-        <div class="sec-header">
-          <span class="sec-num">14 / 18</span>
-          <h2 class="sec-title">Angelic Healing</h2>
-          <div class="sec-rule"></div>
-        </div>
-        <img src="https://hblake316.github.io/hidden-architects-react-typescript/images/plate-c19c5645-0051-40ba-afe2-c423e223135f.png"
-             alt="Plate 24 - Angelic Healing" class="slide-img" />
-        <div class="panel-caption">PLATE 24</div>
-        <div class="sec-body">
-          <p>These pictures portray three different types of angels engaged in their healing ministry. The general method is first to direct streams of purifying energy into and through the aura of the sufferer, in order to disperse congestions in the etheric and emotional bodies.</p>
-          <p>They then re-attune the chord of "Word" of the individual, usually dissonant in the psyche during ill-health, and try to restore the harmonious and rhythmic flow of the inner Life-forces throughout the mental, emotional and physical nature.</p>
-          <p>Finally, they invoke divine healing power from its Source into the patients.</p>
-        </div>
-        <div class="sec-body">
-          <p>Such ministrations are far more effective when man consciously invokes and cooperates with the healing angels.</p>
-        </div>
-      </div>
-    </div>
+      // Keyboard
+      document.addEventListener(
+        'keydown',
+        (e) => {
+          if (
+            e.key === 'ArrowRight' ||
+            e.key === 'ArrowDown' ||
+            e.key === 'PageDown'
+          ) {
+            e.preventDefault()
+            goTo(current + 1)
+          } else if (
+            e.key === 'ArrowLeft' ||
+            e.key === 'ArrowUp' ||
+            e.key === 'PageUp'
+          ) {
+            e.preventDefault()
+            goTo(current - 1)
+          }
+        }
+      )
 
-    <!-- SLIDE 15: The World Mother -->
-    <div class="slide" id="s15">
-      <div class="section-slide">
-        <div class="sec-header">
-          <span class="sec-num">15 / 18</span>
-          <h2 class="sec-title">The World Mother</h2>
-          <div class="sec-rule"></div>
-        </div>
-        <img src="https://hblake316.github.io/hidden-architects-react-typescript/images/plate-b82b8404-2a11-40d9-ba1a-e098e7fd2e20.png"
-             alt="Plate 28 - The Miracle of Birth" class="slide-img" />
-        <div class="panel-caption">PLATE 28 — THE MIRACLE OF BIRTH</div>
-        <div class="sec-body">
-          <p>During the descent into incarnation of each life cycle, angels are present and assist in the dual process of the construction of the new bodies — mental, emotional, etheric, and physical — and the induction into them of the reincarnating ego.</p>
-          <p>Universal substance, or <em>prakriti</em>, is the womb wherein all worlds gestate, from which all are born and to which all return. The true World Mother is this primary substance of a universe when first differentiated from the root of matter or <em>mulaprakriti</em>; therein reside the seeds of all living things and the powers of conservation and reproduction.</p>
-          <p>The planetary World Mother is beyond all limitation of form. No picture can truly represent Her.</p>
-        </div>
-      </div>
-    </div>
+      // ============================================================
+      // DRAWER
+      // ============================================================
+      const drawer =
+        document.getElementById(
+          'drawer'
+        )
+      const overlay =
+        document.getElementById(
+          'drawer-overlay'
+        )
 
-    <!-- SLIDE 16: Rediscovering the Hidden Kingdoms -->
-    <div class="slide" id="s16">
-      <div class="section-slide">
-        <div class="sec-header">
-          <span class="sec-num">16 / 18</span>
-          <h2 class="sec-title">Rediscovering the Hidden Kingdoms</h2>
-          <div class="sec-rule"></div>
-        </div>
-        <div class="sec-body">
-          <p>Annie Besant spoke of the coming Aquarian age as a period in which the relationship between the human and deva kingdoms would be consciously restored — not as the fitful, uncertain perceptions of gifted individuals, but as a recognized reality integrated into the fabric of civilization.</p>
-        </div>
-        <div class="sec-quote">
-          "The Aquarian age will see a new relationship between humanity and the deva kingdom — one of conscious cooperation, mutual recognition, and shared service to the evolving life of the planet."
-        </div>
-        <div class="sec-body">
-          <p>These kingdoms have not gone away. They have been present throughout every epoch of human history, working ceaselessly in the natural world, responsive to human attention and intention. What has changed is our willingness — or ability — to perceive them.</p>
-        </div>
-        <div class="info-card">
-          <h4>How to Begin</h4>
-          <ul class="sec-list">
-            <li><strong style="color:var(--gold);">🌿 Spend Time in Nature</strong> — The nature spirits are most perceptible to a still, attentive, and genuinely open consciousness. Sit by water. Walk in woods.</li>
-            <li><strong style="color:var(--gold);">✦ Open Heart and Mind</strong> — Approach these kingdoms with genuine openness, without demand, and with the expectation of encountering something real.</li>
-            <li><strong style="color:var(--gold);">✧ Send Beauty Outward</strong> — A genuinely loving, generous thought sent toward the nature of a place or the being of a tree is not wasted.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+      function openDrawer() {
+        drawer.classList.add('open')
+        overlay.classList.add('open')
+      }
+      function closeDrawer() {
+        drawer.classList.remove('open')
+        overlay.classList.remove('open')
+      }
 
-    <!-- SLIDE 17: L'Envoi -->
-    <div class="slide" id="s17">
-      <div class="section-slide">
-        <div class="sec-header">
-          <span class="sec-num">17 / 18</span>
-          <h2 class="sec-title">L'Envoi</h2>
-          <div class="sec-rule"></div>
-        </div>
-        <img src="https://hblake316.github.io/hidden-architects-react-typescript/images/plate-f06ddd06-f3f6-4125-ba5c-847e7873dc65.png"
-             alt="Plate 9 - A Mountain God" class="slide-img" />
-        <div class="panel-caption">PLATE 9 — A MOUNTAIN GOD</div>
-        <div class="sec-quote" style="font-size:1.05rem; line-height:1.9;">
-          <p>"The Gods await the conscious re-union of the mind of man with the Universal Mind. Humanity awakens slowly. Matter-blinded through centuries, few men as yet perceive the mind within the substance, the life within the form.</p>
-          <p style="margin-top:0.75rem;">In search of power and wealth, men have traversed the whole earth, have penetrated the wilds, scaled the peaks and conquered the polar wastes. Let them now seek within the form, scale the heights of their own consciousness, penetrate its depth, in search of that inner Power and Life by which alone they may become strong in will and spiritually enriched.</p>
-          <p style="margin-top:0.75rem;">He who thus throws open his life and mind to the Universal Life and Mind indwelling in all things will enter into union therewith and to him the Gods will appear."</p>
-        </div>
-      </div>
-    </div>
+      document
+        .getElementById('menu-btn')
+        .addEventListener(
+          'click',
+          openDrawer
+        )
+      document
+        .getElementById('drawer-close')
+        .addEventListener(
+          'click',
+          closeDrawer
+        )
+      overlay.addEventListener(
+        'click',
+        closeDrawer
+      )
+      document
+        .getElementById('drawer-sigil')
+        .addEventListener(
+          'click',
+          () => {
+            goTo(0)
+            closeDrawer()
+          }
+        )
 
-    <!-- SLIDE 18: References -->
-    <div class="slide" id="s18">
-      <div class="section-slide">
-        <div class="sec-header">
-          <span class="sec-num">18 / 18</span>
-          <h2 class="sec-title">References</h2>
-          <div class="sec-rule"></div>
-        </div>
-        <div class="ref-list">
-          <div class="ref-item">
-            <span class="ref-type">Text</span>
-            <a href="https://www.theosophy.world/sites/default/files/ebooks/The%20Kingdom%20of%20the%20Gods%20-%20Geoffrey%20Hodson.pdf" target="_blank" rel="noopener noreferrer">The Kingdom of the Gods — Geoffrey Hodson (Full PDF)</a>
-          </div>
-          <div class="ref-item">
-            <span class="ref-type">Video</span>
-            <a href="https://www.youtube.com/@NewThinkingAllowed" target="_blank" rel="noopener noreferrer">New Thinking Allowed channel</a>
-          </div>
-          <div class="ref-item">
-            <span class="ref-type">Video</span>
-            <a href="https://www.youtube.com/embed/7WGssopZcig" target="_blank" rel="noopener noreferrer">Jeffrey Mishlove on Geoffrey Hodson</a>
-          </div>
-          <div class="ref-item">
-            <span class="ref-type">Book</span>
-            <a href="https://www.amazon.com/Fairies-Work-Play-Quest-Book/dp/0835605531" target="_blank" rel="noopener noreferrer">Fairies at Work and at Play — Geoffrey Hodson</a>
-          </div>
-          <div class="ref-item">
-            <span class="ref-type">Book</span>
-            <a href="https://www.amazon.com/Passport-Magonia-Folklore-Flying-Saucers-ebook/dp/B00TU7V0XA?ref_=ast_author_mpb" target="_blank" rel="noopener noreferrer">Passport to Magonia: From Folklore to Flying Saucers — Jacques Vallee</a>
-          </div>
-          <div class="ref-item">
-            <span class="ref-type">Video</span>
-            <a href="https://www.youtube.com/embed/5L1p4uXcJKo?si=CmnPh4tXjP4dmB_d" target="_blank" rel="noopener noreferrer">Fairy Pancakes</a>
-          </div>
-          <div class="ref-item">
-            <span class="ref-type">Video</span>
-            <a href="https://www.youtube.com/watch?v=d_RGEpJSr6s" target="_blank" rel="noopener noreferrer">Rupert Sheldrake's Morphic Resonance</a>
-          </div>
-          <div class="ref-item">
-            <span class="ref-type">Article</span>
-            <a href="https://www.newdawnmagazine.com/articles/newscience-consciousness/morphic-resonance-morphic-fields-collective-memory-the-habits-of-nature" target="_blank" rel="noopener noreferrer">Morphic Resonance &amp; Morphic Fields: Collective Memory &amp; the Habits of Nature</a>
-          </div>
-          <div class="ref-item">
-            <span class="ref-type">Article</span>
-            <a href="https://www.chemistryworld.com/features/the-curious-case-of-disappearing-polymorphs/4023257.article" target="_blank" rel="noopener noreferrer">The Curious Case of Disappearing Polymorphs</a>
-          </div>
-        </div>
-      </div>
-    </div>
+      navLinks.forEach((link) => {
+        link.addEventListener(
+          'click',
+          (e) => {
+            e.preventDefault()
+            const idx = parseInt(
+              link.dataset.slide,
+              10
+            )
+            goTo(idx)
+            closeDrawer()
+          }
+        )
+      })
 
-  </div><!-- /slide-area -->
+      // ============================================================
+      // THEME TOGGLE
+      // ============================================================
+      const html =
+        document.documentElement
+      document
+        .getElementById('theme-btn')
+        .addEventListener(
+          'click',
+          () => {
+            html.dataset.theme =
+              html.dataset.theme ===
+              'dark'
+                ? 'light'
+                : 'dark'
+          }
+        )
 
-  <!-- BOTTOM NAV -->
-  <nav id="bottom-nav">
-    <button class="nav-btn" id="prev-btn" disabled>◀ Prev</button>
-    <span id="slide-counter">01 / 18</span>
-    <button class="nav-btn" id="next-btn">Next ▶</button>
-  </nav>
+      // ============================================================
+      // CAROUSEL FACTORY
+      // ============================================================
+      function makeCarousel(
+        trackId,
+        prevId,
+        nextId,
+        dotSelector
+      ) {
+        const track =
+          document.getElementById(
+            trackId
+          )
+        const items = track
+          ? Array.from(track.children)
+          : []
+        const prev =
+          document.getElementById(
+            prevId
+          )
+        const next =
+          document.getElementById(
+            nextId
+          )
+        const dots = Array.from(
+          document.querySelectorAll(
+            dotSelector
+          )
+        )
+        if (
+          !track ||
+          items.length === 0
+        )
+          return
 
-</div><!-- /app -->
+        let idx = 0
 
-<!-- DRAWER OVERLAY -->
-<div id="drawer-overlay"></div>
+        function render() {
+          track.style.transform = `translateX(-${
+            idx * 100
+          }%)`
+          dots.forEach((d, i) =>
+            d.classList.toggle(
+              'active',
+              i === idx
+            )
+          )
+        }
 
-<!-- SIDE DRAWER -->
-<nav id="drawer" aria-label="Presentation navigation">
-  <div id="drawer-header">
-    <span id="drawer-sigil">✦</span>
-    <div id="drawer-title">The Kingdom<br/>of the Gods:<br/>Invisible Realms</div>
-    <button id="drawer-close" aria-label="Close navigation">✕</button>
-  </div>
-  <div id="drawer-nav">
-    <ul>
-      <li><a href="#" class="nav-link active" data-slide="0"><span class="nav-num">01</span> The Kingdom of the Gods</a></li>
-      <li><a href="#" class="nav-link" data-slide="1"><span class="nav-num">02</span> Geoffrey Hodson</a></li>
-      <li><a href="#" class="nav-link" data-slide="2"><span class="nav-num">03</span> Jeffrey Mishlove</a></li>
-      <li><a href="#" class="nav-link" data-slide="3"><span class="nav-num">04</span> What Are the Gods?</a></li>
-      <li><a href="#" class="nav-link" data-slide="4"><span class="nav-num">05</span> The Lesser Gods</a></li>
-      <li><a href="#" class="nav-link" data-slide="5"><span class="nav-num">06</span> Fairy Pancakes</a></li>
-      <li><a href="#" class="nav-link" data-slide="6"><span class="nav-num">07</span> The Mineral Kingdom</a></li>
-      <li><a href="#" class="nav-link" data-slide="7"><span class="nav-num">08</span> The Plant Kingdom</a></li>
-      <li><a href="#" class="nav-link" data-slide="8"><span class="nav-num">09</span> The Animal Kingdom</a></li>
-      <li><a href="#" class="nav-link" data-slide="9"><span class="nav-num">10</span> The Insect Kingdom</a></li>
-      <li><a href="#" class="nav-link" data-slide="10"><span class="nav-num">11</span> The Greater Gods</a></li>
-      <li><a href="#" class="nav-link" data-slide="11"><span class="nav-num">12</span> The Mountain Gods</a></li>
-      <li><a href="#" class="nav-link" data-slide="12"><span class="nav-num">13</span> Angelic Hierarchies</a></li>
-      <li><a href="#" class="nav-link" data-slide="13"><span class="nav-num">14</span> Angelic Healing</a></li>
-      <li><a href="#" class="nav-link" data-slide="14"><span class="nav-num">15</span> The World Mother</a></li>
-      <li><a href="#" class="nav-link" data-slide="15"><span class="nav-num">16</span> Rediscovering the Hidden Kingdoms</a></li>
-      <li><a href="#" class="nav-link" data-slide="16"><span class="nav-num">17</span> L'Envoi</a></li>
-      <li><a href="#" class="nav-link" data-slide="17"><span class="nav-num">18</span> References</a></li>
-    </ul>
-  </div>
-</nav>
+        prev &&
+          prev.addEventListener(
+            'click',
+            (e) => {
+              e.stopPropagation()
+              idx =
+                (idx -
+                  1 +
+                  items.length) %
+                items.length
+              render()
+            }
+          )
 
-<script>
-  // ============================================================
-  // STATE
-  // ============================================================
-  const slides = Array.from(document.querySelectorAll('.slide'));
-  const navLinks = Array.from(document.querySelectorAll('.nav-link'));
-  const total = slides.length;
-  let current = 0;
+        next &&
+          next.addEventListener(
+            'click',
+            (e) => {
+              e.stopPropagation()
+              idx =
+                (idx + 1) % items.length
+              render()
+            }
+          )
 
-  const pad = n => String(n + 1).padStart(2, '0');
-  const totalPad = String(total).padStart(2, '0');
+        dots.forEach((d) => {
+          d.addEventListener(
+            'click',
+            (e) => {
+              e.stopPropagation()
+              idx = parseInt(
+                d.dataset.idx,
+                10
+              )
+              render()
+            }
+          )
+        })
 
-  function updateCounters() {
-    const label = `${pad(current)} / ${totalPad}`;
-    document.getElementById('slide-counter').textContent = label;
-    document.getElementById('slide-counter-top').textContent = label;
-  }
+        render()
+      }
 
-  function goTo(index) {
-    if (index < 0 || index >= total) return;
-    slides[current].classList.remove('active');
-    navLinks[current].classList.remove('active');
-    current = index;
-    slides[current].classList.add('active');
-    slides[current].scrollTop = 0;
-    navLinks[current].classList.add('active');
-    document.getElementById('prev-btn').disabled = current === 0;
-    document.getElementById('next-btn').disabled = current === total - 1;
-    updateCounters();
-  }
+      makeCarousel(
+        'elem-track',
+        'elem-prev',
+        'elem-next',
+        '#elem-dots .car-dot'
+      )
+      makeCarousel(
+        'plant-track',
+        'plant-prev',
+        'plant-next',
+        '#plant-dots .car-dot'
+      )
 
-  // ============================================================
-  // NAVIGATION BUTTONS
-  // ============================================================
-  document.getElementById('prev-btn').addEventListener('click', () => goTo(current - 1));
-  document.getElementById('next-btn').addEventListener('click', () => goTo(current + 1));
-
-  // Keyboard
-  document.addEventListener('keydown', e => {
-    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === 'PageDown') {
-      e.preventDefault(); goTo(current + 1);
-    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp' || e.key === 'PageUp') {
-      e.preventDefault(); goTo(current - 1);
-    }
-  });
-
-  // ============================================================
-  // DRAWER
-  // ============================================================
-  const drawer = document.getElementById('drawer');
-  const overlay = document.getElementById('drawer-overlay');
-
-  function openDrawer() {
-    drawer.classList.add('open');
-    overlay.classList.add('open');
-  }
-  function closeDrawer() {
-    drawer.classList.remove('open');
-    overlay.classList.remove('open');
-  }
-
-  document.getElementById('menu-btn').addEventListener('click', openDrawer);
-  document.getElementById('drawer-close').addEventListener('click', closeDrawer);
-  overlay.addEventListener('click', closeDrawer);
-  document.getElementById('drawer-sigil').addEventListener('click', () => { goTo(0); closeDrawer(); });
-
-  navLinks.forEach(link => {
-    link.addEventListener('click', e => {
-      e.preventDefault();
-      const idx = parseInt(link.dataset.slide, 10);
-      goTo(idx);
-      closeDrawer();
-    });
-  });
-
-  // ============================================================
-  // THEME TOGGLE
-  // ============================================================
-  const html = document.documentElement;
-  document.getElementById('theme-btn').addEventListener('click', () => {
-    html.dataset.theme = html.dataset.theme === 'dark' ? 'light' : 'dark';
-  });
-
-  // ============================================================
-  // CAROUSEL FACTORY
-  // ============================================================
-  function makeCarousel(trackId, prevId, nextId, dotSelector) {
-    const track = document.getElementById(trackId);
-    const items = track ? Array.from(track.children) : [];
-    const prev = document.getElementById(prevId);
-    const next = document.getElementById(nextId);
-    const dots = Array.from(document.querySelectorAll(dotSelector));
-    if (!track || items.length === 0) return;
-
-    let idx = 0;
-
-    function render() {
-      track.style.transform = `translateX(-${idx * 100}%)`;
-      dots.forEach((d, i) => d.classList.toggle('active', i === idx));
-    }
-
-    prev && prev.addEventListener('click', e => {
-      e.stopPropagation();
-      idx = (idx - 1 + items.length) % items.length;
-      render();
-    });
-
-    next && next.addEventListener('click', e => {
-      e.stopPropagation();
-      idx = (idx + 1) % items.length;
-      render();
-    });
-
-    dots.forEach(d => {
-      d.addEventListener('click', e => {
-        e.stopPropagation();
-        idx = parseInt(d.dataset.idx, 10);
-        render();
-      });
-    });
-
-    render();
-  }
-
-  makeCarousel('elem-track', 'elem-prev', 'elem-next', '#elem-dots .car-dot');
-  makeCarousel('plant-track', 'plant-prev', 'plant-next', '#plant-dots .car-dot');
-
-  // ============================================================
-  // INIT
-  // ============================================================
-  updateCounters();
-  document.getElementById('prev-btn').disabled = true;
-</script>
-</body>
+      // ============================================================
+      // INIT
+      // ============================================================
+      updateCounters()
+      document.getElementById(
+        'prev-btn'
+      ).disabled = true
+    </script>
+  </body>
 </html>
