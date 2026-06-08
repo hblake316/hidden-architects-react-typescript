@@ -1163,33 +1163,25 @@
         .slide-with-image {
           display: grid;
           grid-template-columns: 1fr 1fr;
-          grid-template-rows: auto;
           column-gap: 2rem;
           align-items: start;
         }
 
-        /* Left column: header + all text content */
-        .slide-with-image .sec-header,
-        .slide-with-image .sec-body,
-        .slide-with-image .sec-quote,
-        .slide-with-image .info-card,
-        .slide-with-image .sec-list,
-        .slide-with-image .evo-plan {
-          grid-column: 1;
+        .slide-left {
+          display: flex;
+          flex-direction: column;
+          gap: 1.25rem;
         }
 
-        /* Right column: image, caption, speaker notes */
-        .slide-with-image .slide-img,
-        .slide-with-image
-          .slide-img-portrait,
-        .slide-with-image
-          .panel-caption,
-        .slide-with-image
-          .speaker-notes {
-          grid-column: 2;
+        .slide-right {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+          position: sticky;
+          top: 1.75rem;
         }
 
-        /* Image fills the column, shows full without cropping */
+        /* Image fills column, no cropping */
         .slide-with-image .slide-img,
         .slide-with-image
           .slide-img-portrait {
@@ -1203,6 +1195,21 @@
         .slide-with-image
           .panel-caption {
           text-align: left;
+        }
+
+        /* Left column: header + all text content */
+        .slide-with-image .sec-header,
+        .slide-with-image .sec-body,
+        .slide-with-image .sec-quote,
+        .slide-with-image .info-card,
+        .slide-with-image .sec-list,
+        .slide-with-image .evo-plan {
+          grid-column: unset;
+        }
+
+        /* Quotes span full width, below both columns */
+        .slide-with-image .sec-quote {
+          grid-column: unset;
         }
       }
 
@@ -1482,65 +1489,76 @@
           <div
             class="section-slide slide-with-image"
           >
-            <div class="sec-header">
-              <span class="sec-num"
-                >04 / 18</span
-              >
-              <h2 class="sec-title">
-                What Are the Gods?
-              </h2>
+            <div class="slide-left">
+              <div class="sec-header">
+                <span class="sec-num"
+                  >04 / 18</span
+                >
+                <h2 class="sec-title">
+                  What Are the Gods?
+                </h2>
+                <div
+                  class="sec-rule"
+                ></div>
+              </div>
+              <div class="sec-body">
+                <h4>
+                  The Devic Kingdom
+                </h4>
+                <ul class="sec-list">
+                  <li>
+                    Hierarchical Orders
+                    of Intelligences
+                    distinct from
+                    humanity
+                  </li>
+                  <li>
+                    Made up of Lesser
+                    and Greater Gods
+                  </li>
+                  <li>
+                    Profoundly
+                    responsive to human
+                    thought and emotion
+                  </li>
+                  <li>
+                    Genderless but they
+                    do express
+                    polarities
+                  </li>
+                </ul>
+              </div>
+              <div class="sec-quote">
+                "The unusual, pointed,
+                oval shape produced by
+                the flowing streams of
+                its auric forces was
+                clearly discernible. As
+                the picture shows, great
+                currents of power
+                descend upon this sea
+                God, are compressed
+                within its aura and then
+                released into the ocean
+                beneath. This being is
+                subordinate to a still
+                greater God, responsible
+                for the whole Pacific
+                Ocean."
+              </div>
+            </div>
+            <div class="slide-right">
+              <img
+                src="https://hblake316.github.io/hidden-architects-react-typescript/images/plate-dee04121-fa1a-4dd7-ad9a-bbd545dd7990.png"
+                alt="Plate 18 - A God of the Southern Pacific"
+                class="slide-img"
+              />
               <div
-                class="sec-rule"
-              ></div>
-            </div>
-            <div class="sec-body">
-              <h4>The Devic Kingdom</h4>
-              <ul class="sec-list">
-                <li>
-                  Hierarchical Orders of
-                  Intelligences distinct
-                  from humanity
-                </li>
-                <li>
-                  Made up of Lesser and
-                  Greater Gods
-                </li>
-                <li>
-                  Profoundly responsive
-                  to human thought and
-                  emotion
-                </li>
-                <li>
-                  Genderless but they do
-                  express polarities
-                </li>
-              </ul>
-            </div>
-            <img
-              src="https://hblake316.github.io/hidden-architects-react-typescript/images/plate-dee04121-fa1a-4dd7-ad9a-bbd545dd7990.png"
-              alt="Plate 18 - A God of the Southern Pacific"
-              class="slide-img"
-            />
-            <div class="panel-caption">
-              PLATE 18 — A GOD OF THE
-              SOUTHERN PACIFIC
-            </div>
-            <div class="sec-quote">
-              "The unusual, pointed,
-              oval shape produced by the
-              flowing streams of its
-              auric forces was clearly
-              discernible. As the
-              picture shows, great
-              currents of power descend
-              upon this sea God, are
-              compressed within its aura
-              and then released into the
-              ocean beneath. This being
-              is subordinate to a still
-              greater God, responsible
-              for the whole Pacific
-              Ocean."
+                class="panel-caption"
+              >
+                PLATE 18 — A GOD OF THE
+                SOUTHERN PACIFIC
+              </div>
             </div>
           </div>
         </div>
@@ -1981,81 +1999,93 @@
           <div
             class="section-slide slide-with-image"
           >
-            <div class="sec-header">
-              <span class="sec-num"
-                >07 / 18</span
-              >
-              <h2 class="sec-title">
-                The Mineral Kingdom
-              </h2>
+            <div class="slide-left">
+              <div class="sec-header">
+                <span class="sec-num"
+                  >07 / 18</span
+                >
+                <h2 class="sec-title">
+                  The Mineral Kingdom
+                </h2>
+                <div
+                  class="sec-rule"
+                ></div>
+              </div>
+              <p class="evo-plan">
+                <em
+                  >EVOLUTIONARY PLAN:<br />Consciousness:
+                  Physical awareness<br />Form:
+                  Hardness and
+                  beauty</em
+                >
+              </p>
+              <div class="sec-body">
+                <h4>
+                  The Gods of Gold
+                </h4>
+                <p>
+                  There is a hierarchy
+                  of Gods, the chord of
+                  whose nature is
+                  identical with that of
+                  gold. They may be
+                  thought of as the
+                  divine idea of gold
+                  manifest as an Order
+                  of living beings.
+                  Members of this
+                  hierarchy are drawn by
+                  vibratory affinity
+                  into the streams of
+                  gold force which are
+                  constantly descending
+                  from the creative
+                  Source into the
+                  physical world.
+                </p>
+                <p>
+                  Their presence and
+                  assistance intensify
+                  the component
+                  frequencies and
+                  thereby augment the
+                  form-producing power
+                  of the Word-force.
+                  Thus, part of the
+                  function of the Gods
+                  of gold is to assist
+                  in the process of the
+                  production of physical
+                  substances and forms.
+                </p>
+              </div>
+              <div class="sec-quote">
+                "The vertical extension
+                was 'immense, reaching
+                from some two hundred
+                feet in the air to at
+                least the same distance
+                below the surface of the
+                veldt, whilst the actual
+                gold-producing force
+                played on down to the
+                reef, in some cases six
+                thousand or more feet
+                below.'"
+              </div>
+            </div>
+            <div class="slide-right">
+              <img
+                src="https://hblake316.github.io/hidden-architects-react-typescript/images/plate-18-gold-reef.jpg"
+                alt="A God of the Gold Reef"
+                class="slide-img"
+              />
               <div
-                class="sec-rule"
-              ></div>
-            </div>
-            <p class="evo-plan">
-              <em
-                >EVOLUTIONARY PLAN:<br />Consciousness:
-                Physical awareness<br />Form:
-                Hardness and beauty</em
+                class="panel-caption"
               >
-            </p>
-            <div class="sec-body">
-              <h4>The Gods of Gold</h4>
-              <p>
-                There is a hierarchy of
-                Gods, the chord of whose
-                nature is identical with
-                that of gold. They may
-                be thought of as the
-                divine idea of gold
-                manifest as an Order of
-                living beings. Members
-                of this hierarchy are
-                drawn by vibratory
-                affinity into the
-                streams of gold force
-                which are constantly
-                descending from the
-                creative Source into the
-                physical world.
-              </p>
-              <p>
-                Their presence and
-                assistance intensify the
-                component frequencies
-                and thereby augment the
-                form-producing power of
-                the Word-force. Thus,
-                part of the function of
-                the Gods of gold is to
-                assist in the process of
-                the production of
-                physical substances and
-                forms.
-              </p>
-            </div>
-            <img
-              src="https://hblake316.github.io/hidden-architects-react-typescript/images/plate-18-gold-reef.jpg"
-              alt="A God of the Gold Reef"
-              class="slide-img"
-            />
-            <div class="panel-caption">
-              PLATE 18 — A GOD OF THE
-              GOLD REEF
-            </div>
-            <div class="sec-quote">
-              "The vertical extension
-              was 'immense, reaching
-              from some two hundred feet
-              in the air to at least the
-              same distance below the
-              surface of the veldt,
-              whilst the actual
-              gold-producing force
-              played on down to the
-              reef, in some cases six
-              thousand or more feet
-              below.'"
+                PLATE 18 — A GOD OF THE
+                GOLD REEF
+              </div>
             </div>
           </div>
         </div>
@@ -2281,57 +2311,63 @@
           <div
             class="section-slide slide-with-image"
           >
-            <div class="sec-header">
-              <span class="sec-num"
-                >09 / 18</span
-              >
-              <h2 class="sec-title">
-                The Animal Kingdom
-              </h2>
-              <div
-                class="sec-rule"
-              ></div>
+            <div class="slide-left">
+              <div class="sec-header">
+                <span class="sec-num"
+                  >09 / 18</span
+                >
+                <h2 class="sec-title">
+                  The Animal Kingdom
+                </h2>
+                <div
+                  class="sec-rule"
+                ></div>
+              </div>
+              <p class="evo-plan">
+                <em
+                  >EVOLUTIONARY PLAN:<br />Consciousness:
+                  Self-consciousness of
+                  feeling and thought<br />Form:
+                  Beauty</em
+                >
+              </p>
+              <div class="sec-body">
+                <ul class="sec-list">
+                  <li>
+                    Actuated by a group
+                    consciousness shared
+                    with others of the
+                    same genus
+                  </li>
+                  <li>
+                    Are assigned group
+                    soul Angels
+                  </li>
+                  <li>
+                    The process of
+                    individualization
+                    occurs and a human
+                    soul is born when
+                    the Group Soul
+                    reaches its
+                    apotheosis
+                  </li>
+                  <li>
+                    Devas have evolved
+                    out of group
+                    consciousness into
+                    separate
+                    individuality
+                  </li>
+                </ul>
+              </div>
             </div>
-            <p class="evo-plan">
-              <em
-                >EVOLUTIONARY PLAN:<br />Consciousness:
-                Self-consciousness of
-                feeling and thought<br />Form:
-                Beauty</em
-              >
-            </p>
-            <img
-              src="https://hblake316.github.io/hidden-architects-react-typescript/images/dog.jpg"
-              alt="Animal"
-              class="slide-img"
-            />
-            <div class="sec-body">
-              <ul class="sec-list">
-                <li>
-                  Actuated by a group
-                  consciousness shared
-                  with others of the
-                  same genus
-                </li>
-                <li>
-                  Are assigned group
-                  soul Angels
-                </li>
-                <li>
-                  The process of
-                  individualization
-                  occurs and a human
-                  soul is born when the
-                  Group Soul reaches its
-                  apotheosis
-                </li>
-                <li>
-                  Devas have evolved out
-                  of group consciousness
-                  into separate
-                  individuality
-                </li>
-              </ul>
+            <div class="slide-right">
+              <img
+                src="https://hblake316.github.io/hidden-architects-react-typescript/images/dog.jpg"
+                alt="Animal"
+                class="slide-img"
+              />
             </div>
           </div>
         </div>
@@ -2438,94 +2474,103 @@
           <div
             class="section-slide slide-with-image"
           >
-            <div class="sec-header">
-              <span class="sec-num"
-                >11 / 18</span
-              >
-              <h2 class="sec-title">
-                The Greater Gods
-              </h2>
+            <div class="slide-left">
+              <div class="sec-header">
+                <span class="sec-num"
+                  >11 / 18</span
+                >
+                <h2 class="sec-title">
+                  The Greater Gods
+                </h2>
+                <div
+                  class="sec-rule"
+                ></div>
+              </div>
+              <div class="sec-body">
+                <p>
+                  The Greater Gods are
+                  the architects — the
+                  Archangels, Devas,
+                  Angels, and Sephiroth.
+                  In the present
+                  Mahamanvantara their
+                  will does not become
+                  markedly
+                  differentiated from
+                  the One Will. The
+                  human sense of
+                  separated personality
+                  is almost entirely
+                  absent in them.
+                </p>
+                <p>
+                  Their path of
+                  evolution does not
+                  deeply penetrate the
+                  physical world and
+                  leads from instinctive
+                  to self-conscious
+                  co-operation with the
+                  One Will.
+                </p>
+                <h4
+                  style="
+                    margin-top: 0.85rem;
+                  "
+                >
+                  Their Active Role in
+                  Human Life
+                </h4>
+                <p>
+                  Theosophical teaching
+                  holds that every human
+                  being has a guardian
+                  angel — a deva whose
+                  specific function is
+                  to accompany that soul
+                  through its
+                  incarnations, holding
+                  the pattern of its
+                  higher self and
+                  providing an invisible
+                  source of protection,
+                  inspiration, and
+                  guidance.
+                </p>
+                <p>
+                  This is not metaphor.
+                  It is a structural
+                  feature of human
+                  existence that has
+                  been attested across
+                  virtually every
+                  spiritual tradition in
+                  the world.
+                </p>
+              </div>
+              <div class="sec-quote">
+                "True music is a
+                temporary, physical
+                expression of the sound
+                of the ever-uttered
+                'Word'. Throughout
+                creative Day, the Great
+                Breath is breathed forth
+                as music and received
+                back as music."
+              </div>
+            </div>
+            <div class="slide-right">
+              <img
+                src="https://hblake316.github.io/hidden-architects-react-typescript/images/plate-f43ed6e2-a731-4674-a8ed-8a06f4b7ea97.png"
+                alt="Plate 20"
+                class="slide-img"
+              />
               <div
-                class="sec-rule"
-              ></div>
-            </div>
-            <img
-              src="https://hblake316.github.io/hidden-architects-react-typescript/images/plate-f43ed6e2-a731-4674-a8ed-8a06f4b7ea97.png"
-              alt="Plate 20"
-              class="slide-img"
-            />
-            <div class="panel-caption">
-              PLATE 20
-            </div>
-            <div class="sec-quote">
-              "True music is a
-              temporary, physical
-              expression of the sound of
-              the ever-uttered 'Word'.
-              Throughout creative Day,
-              the Great Breath is
-              breathed forth as music
-              and received back as
-              music."
-            </div>
-            <div class="sec-body">
-              <p>
-                The Greater Gods are the
-                architects — the
-                Archangels, Devas,
-                Angels, and Sephiroth.
-                In the present
-                Mahamanvantara their
-                will does not become
-                markedly differentiated
-                from the One Will. The
-                human sense of separated
-                personality is almost
-                entirely absent in them.
-              </p>
-              <p>
-                Their path of evolution
-                does not deeply
-                penetrate the physical
-                world and leads from
-                instinctive to
-                self-conscious
-                co-operation with the
-                One Will.
-              </p>
-              <h4
-                style="
-                  margin-top: 0.85rem;
-                "
+                class="panel-caption"
               >
-                Their Active Role in
-                Human Life
-              </h4>
-              <p>
-                Theosophical teaching
-                holds that every human
-                being has a guardian
-                angel — a deva whose
-                specific function is to
-                accompany that soul
-                through its
-                incarnations, holding
-                the pattern of its
-                higher self and
-                providing an invisible
-                source of protection,
-                inspiration, and
-                guidance.
-              </p>
-              <p>
-                This is not metaphor. It
-                is a structural feature
-                of human existence that
-                has been attested across
-                virtually every
-                spiritual tradition in
-                the world.
-              </p>
+                PLATE 20
+              </div>
             </div>
           </div>
         </div>
@@ -2535,37 +2580,70 @@
           <div
             class="section-slide slide-with-image"
           >
-            <div class="sec-header">
-              <span class="sec-num"
-                >12 / 18</span
-              >
-              <h2 class="sec-title">
-                The Mountain Gods
-              </h2>
+            <div class="slide-left">
+              <div class="sec-header">
+                <span class="sec-num"
+                  >12 / 18</span
+                >
+                <h2 class="sec-title">
+                  The Mountain Gods
+                </h2>
+                <div
+                  class="sec-rule"
+                ></div>
+              </div>
+              <div class="sec-body">
+                <h4>
+                  Messages from the
+                  Heights
+                </h4>
+              </div>
+              <div class="sec-quote">
+                "The globe is a living
+                being with incarnate
+                power, life and
+                consciousness. The Earth
+                breathes. Its heart
+                beats. It is the body of
+                a God who is the Spirit
+                of the Earth."
+              </div>
+              <div class="sec-quote">
+                "The heart of Nature,
+                save for its rhythmic
+                pulse, abides in
+                silence. The devotee at
+                Nature's shrine must
+                approach her altar
+                reverently and with
+                quiet mind if he would
+                find her beating heart
+                and know the power
+                within the form."
+              </div>
+              <div class="sec-quote">
+                "The wheel revolves. The
+                golden days return.
+                Nature calls again to
+                man who, as he hears,
+                endeavours to respond."
+              </div>
+            </div>
+            <div class="slide-right">
+              <img
+                src="https://hblake316.github.io/hidden-architects-react-typescript/images/plate-concentric-deva.png"
+                alt="A God of a Snowclad Range"
+                class="slide-img"
+              />
               <div
-                class="sec-rule"
-              ></div>
-            </div>
-            <img
-              src="https://hblake316.github.io/hidden-architects-react-typescript/images/plate-concentric-deva.png"
-              alt="A God of a Snowclad Range"
-              class="slide-img"
-            />
-            <div class="panel-caption">
-              PLATE 15 — THE GOD OF A
-              SNOWCLAD RANGE, Sierra
-              Nevadas, California
-            </div>
-            <div class="sec-body">
-              <p
-                style="
-                  font-size: 0.8rem;
-                  color: var(
-                    --text-muted
-                  );
-                  font-style: italic;
-                  text-align: center;
-                "
+                class="panel-caption"
+              >
+                PLATE 15 — THE GOD OF A
+                SNOWCLAD RANGE, Sierra
+                Nevadas, California
+              </div>
+              <div
+                class="speaker-notes"
               >
                 "In order to show the
                 colouring and the
@@ -2576,41 +2654,7 @@
                 of the aura. The devic
                 form is approximately
                 fifty feet tall."
-              </p>
-            </div>
-            <div class="sec-body">
-              <h4>
-                Messages from the
-                Heights
-              </h4>
-            </div>
-            <div class="sec-quote">
-              "The globe is a living
-              being with incarnate
-              power, life and
-              consciousness. The Earth
-              breathes. Its heart beats.
-              It is the body of a God
-              who is the Spirit of the
-              Earth."
-            </div>
-            <div class="sec-quote">
-              "The heart of Nature, save
-              for its rhythmic pulse,
-              abides in silence. The
-              devotee at Nature's shrine
-              must approach her altar
-              reverently and with quiet
-              mind if he would find her
-              beating heart and know the
-              power within the form."
-            </div>
-            <div class="sec-quote">
-              "The wheel revolves. The
-              golden days return. Nature
-              calls again to man who, as
-              he hears, endeavours to
-              respond."
+              </div>
             </div>
           </div>
         </div>
@@ -2620,95 +2664,108 @@
           <div
             class="section-slide slide-with-image"
           >
-            <div class="sec-header">
-              <span class="sec-num"
-                >13 / 18</span
-              >
-              <h2 class="sec-title">
-                Angelic Hierarchies
-              </h2>
-              <div
-                class="sec-rule"
-              ></div>
-            </div>
-            <img
-              src="https://hblake316.github.io/hidden-architects-react-typescript/images/plate-ce15032a-034e-4721-a0a4-c4e1452be609.png"
-              alt="Plate 27 - A Kundalini Devi"
-              class="slide-img"
-            />
-            <div class="panel-caption">
-              PLATE 27 — A KUNDALINI
-              DEVI
-            </div>
-            <div class="sec-body">
-              <p>
-                The totality of Angelic
-                Hosts and Nature Spirits
-                of a solar system is a
-                manifestation of one
-                Solar Archangel of
-                unimaginable splendor
-                within whom all angels
-                live. From this center
-                all have emanated, and
-                into it all will return.
-              </p>
-              <p>
-                The One Supreme Being
-                becomes expressed in 3
-                aspects: masculine,
-                androgyne, and feminine.
-                These 3 emanations in
-                turn unite every
-                possible combination to
-                produce a 7-fold
-                self-expression of the
-                Divine Monad — the 7
-                highest Archangels.
-              </p>
-            </div>
-            <div class="info-card">
-              <h4>
-                Among the Many
-                Archangels and Angels
-              </h4>
-              <ul class="sec-list">
-                <li>
+            <div class="slide-left">
+              <div class="sec-header">
+                <span class="sec-num"
+                  >13 / 18</span
+                >
+                <h2 class="sec-title">
+                  Angelic Hierarchies
+                </h2>
+                <div
+                  class="sec-rule"
+                ></div>
+              </div>
+              <div class="sec-body">
+                <p>
+                  The totality of
+                  Angelic Hosts and
+                  Nature Spirits of a
+                  solar system is a
+                  manifestation of one
+                  Solar Archangel of
+                  unimaginable splendor
+                  within whom all angels
+                  live. From this center
+                  all have emanated, and
+                  into it all will
+                  return.
+                </p>
+                <p>
+                  The One Supreme Being
+                  becomes expressed in 3
+                  aspects: masculine,
+                  androgyne, and
+                  feminine. These 3
+                  emanations in turn
+                  unite every possible
+                  combination to produce
+                  a 7-fold
+                  self-expression of the
+                  Divine Monad — the 7
+                  highest Archangels.
+                </p>
+              </div>
+              <div class="info-card">
+                <h4>
+                  Among the Many
+                  Archangels and Angels
+                </h4>
+                <ul class="sec-list">
+                  <li>
+                    Planetary Archangels
+                  </li>
+                  <li>
+                    National Angels
+                  </li>
+                  <li>
+                    Angel builders of
+                    human form
+                  </li>
+                  <li>
+                    Angels of Religion
+                  </li>
+                  <li>
+                    Group soul Angels
+                    for the mineral,
+                    plant, and animal
+                    kingdoms
+                  </li>
+                </ul>
+              </div>
+              <div class="sec-body">
+                <h4>
                   Planetary Archangels
-                </li>
-                <li>National Angels</li>
-                <li>
-                  Angel builders of
-                  human form
-                </li>
-                <li>
-                  Angels of Religion
-                </li>
-                <li>
-                  Group soul Angels for
-                  the mineral, plant,
-                  and animal kingdoms
-                </li>
-              </ul>
+                </h4>
+                <p>
+                  The Archangels of the
+                  planets, each of whom
+                  maintains an 'Embassy'
+                  on Earth, have been
+                  referred to as
+                  Heavenly Snails who
+                  move with apparent
+                  slowness on their
+                  orbits around the sun,
+                  each carrying their
+                  physical planet on
+                  their back like a
+                  house or shell.
+                </p>
+              </div>
             </div>
-            <div class="sec-body">
-              <h4>
-                Planetary Archangels
-              </h4>
-              <p>
-                The Archangels of the
-                planets, each of whom
-                maintains an 'Embassy'
-                on Earth, have been
-                referred to as Heavenly
-                Snails who move with
-                apparent slowness on
-                their orbits around the
-                sun, each carrying their
-                physical planet on their
-                back like a house or
-                shell.
-              </p>
+            <div class="slide-right">
+              <img
+                src="https://hblake316.github.io/hidden-architects-react-typescript/images/plate-ce15032a-034e-4721-a0a4-c4e1452be609.png"
+                alt="Plate 27 - A Kundalini Devi"
+                class="slide-img"
+              />
+              <div
+                class="panel-caption"
+              >
+                PLATE 27 — A KUNDALINI
+                DEVI
+              </div>
             </div>
           </div>
         </div>
@@ -2718,68 +2775,78 @@
           <div
             class="section-slide slide-with-image"
           >
-            <div class="sec-header">
-              <span class="sec-num"
-                >14 / 18</span
-              >
-              <h2 class="sec-title">
-                Angelic Healing
-              </h2>
+            <div class="slide-left">
+              <div class="sec-header">
+                <span class="sec-num"
+                  >14 / 18</span
+                >
+                <h2 class="sec-title">
+                  Angelic Healing
+                </h2>
+                <div
+                  class="sec-rule"
+                ></div>
+              </div>
+              <div class="sec-body">
+                <p>
+                  These pictures portray
+                  three different types
+                  of angels engaged in
+                  their healing
+                  ministry. The general
+                  method is first to
+                  direct streams of
+                  purifying energy into
+                  and through the aura
+                  of the sufferer, in
+                  order to disperse
+                  congestions in the
+                  etheric and emotional
+                  bodies.
+                </p>
+                <p>
+                  They then re-attune
+                  the chord of "Word" of
+                  the individual,
+                  usually dissonant in
+                  the psyche during
+                  ill-health, and try to
+                  restore the harmonious
+                  and rhythmic flow of
+                  the inner Life-forces
+                  throughout the mental,
+                  emotional and physical
+                  nature.
+                </p>
+                <p>
+                  Finally, they invoke
+                  divine healing power
+                  from its Source into
+                  the patients.
+                </p>
+              </div>
+              <div class="sec-body">
+                <p>
+                  Such ministrations are
+                  far more effective
+                  when man consciously
+                  invokes and cooperates
+                  with the healing
+                  angels.
+                </p>
+              </div>
+            </div>
+            <div class="slide-right">
+              <img
+                src="https://hblake316.github.io/hidden-architects-react-typescript/images/plate-c19c5645-0051-40ba-afe2-c423e223135f.png"
+                alt="Plate 24 - Angelic Healing"
+                class="slide-img"
+              />
               <div
-                class="sec-rule"
-              ></div>
-            </div>
-            <img
-              src="https://hblake316.github.io/hidden-architects-react-typescript/images/plate-c19c5645-0051-40ba-afe2-c423e223135f.png"
-              alt="Plate 24 - Angelic Healing"
-              class="slide-img"
-            />
-            <div class="panel-caption">
-              PLATE 24
-            </div>
-            <div class="sec-body">
-              <p>
-                These pictures portray
-                three different types of
-                angels engaged in their
-                healing ministry. The
-                general method is first
-                to direct streams of
-                purifying energy into
-                and through the aura of
-                the sufferer, in order
-                to disperse congestions
-                in the etheric and
-                emotional bodies.
-              </p>
-              <p>
-                They then re-attune the
-                chord of "Word" of the
-                individual, usually
-                dissonant in the psyche
-                during ill-health, and
-                try to restore the
-                harmonious and rhythmic
-                flow of the inner
-                Life-forces throughout
-                the mental, emotional
-                and physical nature.
-              </p>
-              <p>
-                Finally, they invoke
-                divine healing power
-                from its Source into the
-                patients.
-              </p>
-            </div>
-            <div class="sec-body">
-              <p>
-                Such ministrations are
-                far more effective when
-                man consciously invokes
-                and cooperates with the
-                healing angels.
-              </p>
+                class="panel-caption"
+              >
+                PLATE 24
+              </div>
             </div>
           </div>
         </div>
@@ -2789,66 +2856,74 @@
           <div
             class="section-slide slide-with-image"
           >
-            <div class="sec-header">
-              <span class="sec-num"
-                >15 / 18</span
-              >
-              <h2 class="sec-title">
-                The World Mother
-              </h2>
+            <div class="slide-left">
+              <div class="sec-header">
+                <span class="sec-num"
+                  >15 / 18</span
+                >
+                <h2 class="sec-title">
+                  The World Mother
+                </h2>
+                <div
+                  class="sec-rule"
+                ></div>
+              </div>
+              <div class="sec-body">
+                <p>
+                  During the descent
+                  into incarnation of
+                  each life cycle,
+                  angels are present and
+                  assist in the dual
+                  process of the
+                  construction of the
+                  new bodies — mental,
+                  emotional, etheric,
+                  and physical — and the
+                  induction into them of
+                  the reincarnating ego.
+                </p>
+                <p>
+                  Universal substance,
+                  or <em>prakriti</em>,
+                  is the womb wherein
+                  all worlds gestate,
+                  from which all are
+                  born and to which all
+                  return. The true World
+                  Mother is this primary
+                  substance of a
+                  universe when first
+                  differentiated from
+                  the root of matter or
+                  <em>mulaprakriti</em>;
+                  therein reside the
+                  seeds of all living
+                  things and the powers
+                  of conservation and
+                  reproduction.
+                </p>
+                <p>
+                  The planetary World
+                  Mother is beyond all
+                  limitation of form. No
+                  picture can truly
+                  represent Her.
+                </p>
+              </div>
+            </div>
+            <div class="slide-right">
+              <img
+                src="https://hblake316.github.io/hidden-architects-react-typescript/images/plate-b82b8404-2a11-40d9-ba1a-e098e7fd2e20.png"
+                alt="Plate 28 - The Miracle of Birth"
+                class="slide-img"
+              />
               <div
-                class="sec-rule"
-              ></div>
-            </div>
-            <img
-              src="https://hblake316.github.io/hidden-architects-react-typescript/images/plate-b82b8404-2a11-40d9-ba1a-e098e7fd2e20.png"
-              alt="Plate 28 - The Miracle of Birth"
-              class="slide-img"
-            />
-            <div class="panel-caption">
-              PLATE 28 — THE MIRACLE OF
-              BIRTH
-            </div>
-            <div class="sec-body">
-              <p>
-                During the descent into
-                incarnation of each life
-                cycle, angels are
-                present and assist in
-                the dual process of the
-                construction of the new
-                bodies — mental,
-                emotional, etheric, and
-                physical — and the
-                induction into them of
-                the reincarnating ego.
-              </p>
-              <p>
-                Universal substance, or
-                <em>prakriti</em>, is
-                the womb wherein all
-                worlds gestate, from
-                which all are born and
-                to which all return. The
-                true World Mother is
-                this primary substance
-                of a universe when first
-                differentiated from the
-                root of matter or
-                <em>mulaprakriti</em>;
-                therein reside the seeds
-                of all living things and
-                the powers of
-                conservation and
-                reproduction.
-              </p>
-              <p>
-                The planetary World
-                Mother is beyond all
-                limitation of form. No
-                picture can truly
-                represent Her.
-              </p>
+                class="panel-caption"
+              >
+                PLATE 28 — THE MIRACLE
+                OF BIRTH
+              </div>
             </div>
           </div>
         </div>
@@ -2975,81 +3050,89 @@
           <div
             class="section-slide slide-with-image"
           >
-            <div class="sec-header">
-              <span class="sec-num"
-                >17 / 18</span
-              >
-              <h2 class="sec-title">
-                L'Envoi
-              </h2>
+            <div class="slide-left">
+              <div class="sec-header">
+                <span class="sec-num"
+                  >17 / 18</span
+                >
+                <h2 class="sec-title">
+                  L'Envoi
+                </h2>
+                <div
+                  class="sec-rule"
+                ></div>
+              </div>
               <div
-                class="sec-rule"
-              ></div>
-            </div>
-            <img
-              src="https://hblake316.github.io/hidden-architects-react-typescript/images/plate-f06ddd06-f3f6-4125-ba5c-847e7873dc65.png"
-              alt="Plate 9 - A Mountain God"
-              class="slide-img"
-            />
-            <div class="panel-caption">
-              PLATE 9 — A MOUNTAIN GOD
-            </div>
-            <div
-              class="sec-quote"
-              style="
-                font-size: 1.05rem;
-                line-height: 1.9;
-              "
-            >
-              <p>
-                "The Gods await the
-                conscious re-union of
-                the mind of man with the
-                Universal Mind. Humanity
-                awakens slowly.
-                Matter-blinded through
-                centuries, few men as
-                yet perceive the mind
-                within the substance,
-                the life within the
-                form.
-              </p>
-              <p
+                class="sec-quote"
                 style="
-                  margin-top: 0.75rem;
+                  font-size: 1.05rem;
+                  line-height: 1.9;
                 "
               >
-                In search of power and
-                wealth, men have
-                traversed the whole
-                earth, have penetrated
-                the wilds, scaled the
-                peaks and conquered the
-                polar wastes. Let them
-                now seek within the
-                form, scale the heights
-                of their own
-                consciousness, penetrate
-                its depth, in search of
-                that inner Power and
-                Life by which alone they
-                may become strong in
-                will and spiritually
-                enriched.
-              </p>
-              <p
-                style="
-                  margin-top: 0.75rem;
-                "
+                <p>
+                  "The Gods await the
+                  conscious re-union of
+                  the mind of man with
+                  the Universal Mind.
+                  Humanity awakens
+                  slowly. Matter-blinded
+                  through centuries, few
+                  men as yet perceive
+                  the mind within the
+                  substance, the life
+                  within the form.
+                </p>
+                <p
+                  style="
+                    margin-top: 0.75rem;
+                  "
+                >
+                  In search of power and
+                  wealth, men have
+                  traversed the whole
+                  earth, have penetrated
+                  the wilds, scaled the
+                  peaks and conquered
+                  the polar wastes. Let
+                  them now seek within
+                  the form, scale the
+                  heights of their own
+                  consciousness,
+                  penetrate its depth,
+                  in search of that
+                  inner Power and Life
+                  by which alone they
+                  may become strong in
+                  will and spiritually
+                  enriched.
+                </p>
+                <p
+                  style="
+                    margin-top: 0.75rem;
+                  "
+                >
+                  He who thus throws
+                  open his life and mind
+                  to the Universal Life
+                  and Mind indwelling in
+                  all things will enter
+                  into union therewith
+                  and to him the Gods
+                  will appear."
+                </p>
+              </div>
+            </div>
+            <div class="slide-right">
+              <img
+                src="https://hblake316.github.io/hidden-architects-react-typescript/images/plate-f06ddd06-f3f6-4125-ba5c-847e7873dc65.png"
+                alt="Plate 9 - A Mountain God"
+                class="slide-img"
+              />
+              <div
+                class="panel-caption"
               >
-                He who thus throws open
-                his life and mind to the
-                Universal Life and Mind
-                indwelling in all things
-                will enter into union
-                therewith and to him the
-                Gods will appear."
-              </p>
+                PLATE 9 — A MOUNTAIN GOD
+              </div>
             </div>
           </div>
         </div>
